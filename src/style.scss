@@ -1,0 +1,27 @@
+@import "/assets/fonts/stylesheet.css";
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+#hero {
+    background-image: url("/assets/hero.png");
+    color: #f8f5f0;
+    font-family: "Creato Display", sans-serif;
+    aspect-ratio:  64 / 27;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-text {
+    position: absolute;
+    left: 50%;
+    right: 4rem;
+    padding: 3vw 0;
+    font-size: 5vw;
+}
