@@ -56,12 +56,29 @@
         font-size: 2.5rem;
         font-weight: bold;
         font-family: 'Creato Display', sans-serif;
+        line-height: 1;
+    }
+
+    &.reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+@media (max-width: 50rem) {
+    .hook, .hook.reverse {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .skip-to-content {
+        left: 1rem;
+        transform: none;
     }
 }
 
 .hook-image {
-    max-height: 20rem;
-    width: auto;
+    max-width: min(25rem, 50vw);
+    height: auto;
 
     box-shadow: 0px 8px 24px 0px #000000;
 }

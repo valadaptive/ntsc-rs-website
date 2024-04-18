@@ -7,9 +7,12 @@ nav-slug: "docs"
     {%- if eleventyNavigation -%}
         {%- set navKey = eleventyNavigation.key -%}
     {%- endif -%}
-    <div class="navigation-sidebar">
-        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({activeKey: navKey, activeAnchorClass: 'navigation-active'}) | safe }}
-    </div>
+    <details class="navigation-details" open>
+        <summary class="navigation-summary">Navigation</summary>
+        <div class="navigation-sidebar">
+            {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({activeKey: navKey, activeAnchorClass: 'navigation-active'}) | safe }}
+        </div>
+    </details>
     <div id="content">
         <h1>{{ title }}</h1>
         {{ content | safe }}

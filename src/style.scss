@@ -12,43 +12,39 @@ $link-color-light-mode: #30597a;
 $link-color-dark-mode: #8de1e7;
 
 @mixin color-scheme($palette) {
-        --text-color: #{map.get($palette, 'text')};
-        --link-color: #{map.get($palette, 'link')};
-        --link-underline: #{color.change(map.get($palette, 'link'), $alpha: 0.5)};
-        --text-underline: #{color.change(map.get($palette, 'text'), $alpha: 0.5)};
-        --background-color: #{map.get($palette, 'background')};
-        --bg-hover: #{map.get($palette, 'background-hover')};
-        --bg-active: #{map.get($palette, 'background-active')};
-        --button-color: #{map.get($palette, 'text')};
-        --button-hover: #{map.get($palette, 'text-hover')};
-        --button-active: #{map.get($palette, 'text-active')};
-        --navbar-color: #{map.get($palette, 'navbar')};
+    --text-color: #{map.get($palette, 'text')};
+    --link-color: #{map.get($palette, 'link')};
+    --link-underline: #{color.change(map.get($palette, 'link'), $alpha: 0.5)};
+    --text-underline: #{color.change(map.get($palette, 'text'), $alpha: 0.5)};
+    --background-color: #{map.get($palette, 'background')};
+    --bg-hover: #{map.get($palette, 'background-hover')};
+    --bg-active: #{map.get($palette, 'background-active')};
+    --button-color: #{map.get($palette, 'text')};
+    --button-hover: #{map.get($palette, 'text-hover')};
+    --button-active: #{map.get($palette, 'text-active')};
+    --navbar-color: #{map.get($palette, 'navbar')};
 }
 
 @mixin dark-mode {
-    @include color-scheme((
-        "text": $beige,
-        "text-hover": $beige-lighter,
-        "text-active": $beige-darker,
-        "link": $link-color-dark-mode,
-        "background": $black,
-        "background-hover": $black-lighter,
-        "background-active": $black-darker,
-        "navbar": $black-darker
-    ));
+    @include color-scheme(("text": $beige,
+            "text-hover": $beige-lighter,
+            "text-active": $beige-darker,
+            "link": $link-color-dark-mode,
+            "background": $black,
+            "background-hover": $black-lighter,
+            "background-active": $black-darker,
+            "navbar": $black-darker ));
 }
 
 @mixin light-mode {
-    @include color-scheme((
-        "text": $black,
-        "text-hover": $black-lighter,
-        "text-active": $black-darker,
-        "link": $link-color-light-mode,
-        "background": $beige,
-        "background-hover": $beige-darker,
-        "background-active": $beige-lighter,
-        "navbar": $beige-lighter
-    ));
+    @include color-scheme(("text": $black,
+            "text-hover": $black-lighter,
+            "text-active": $black-darker,
+            "link": $link-color-light-mode,
+            "background": $beige,
+            "background-hover": $beige-darker,
+            "background-active": $beige-lighter,
+            "navbar": $beige-lighter ));
 }
 
 @media(prefers-color-scheme: light) {
@@ -99,7 +95,8 @@ pre {
     white-space: pre-wrap;
 }
 
-pre, code {
+pre,
+code {
     font-family: 'JetBrains Mono', monospace;
     background-color: var(--bg-active);
     border-radius: 0.25rem;
@@ -133,6 +130,11 @@ pre, code {
     display: flex;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap;
+
+    & li {
+        display: inline-block;
+    }
 
     & a {
         display: flex;
@@ -145,7 +147,8 @@ pre, code {
 
         transition: background-color 0.1s;
 
-        &:hover, &.active {
+        &:hover,
+        &.active {
             background-color: var(--bg-hover)
         }
     }
@@ -157,7 +160,6 @@ pre, code {
 
     & > ul {
         position: fixed;
-        top: 4rem;
         list-style-type: none;
         padding: 0;
 
@@ -179,11 +181,12 @@ pre, code {
 .button {
     background-color: var(--button-color);
     color: var(--background-color);
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
     text-decoration: none;
+    display: inline-block;
 
     transition: background-color 0.1s;
 
@@ -205,10 +208,12 @@ pre, code {
 #content {
     padding: 0 2rem 4rem;
     width: 12in;
+    box-sizing: border-box;
 }
 
 .docs-image {
     max-width: 100%;
+    height: auto;
 }
 
 .thumbnail-overlay {
@@ -230,4 +235,48 @@ pre, code {
 
 img.thumbnail {
     cursor: pointer;
+}
+
+.navigation-summary {
+    display: none;
+}
+
+@media (max-width: 50rem) {
+    .nav-cols {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .navigation-details {
+        padding: 1rem 2rem 0 2rem;
+
+        &[open] .navigation-summary::before {
+            transform: rotate(90deg);
+        }
+    }
+
+    .navigation-sidebar {
+        width: 100%;
+
+        & > ul {
+            position: initial;
+        }
+    }
+
+    .navigation-summary {
+        display: block;
+        font-weight: bold;
+        cursor: pointer;
+
+        &::before {
+            content: '▶';
+            margin-right: 0.5rem;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+    }
+
+    #content {
+        width: 100%;
+    }
 }
