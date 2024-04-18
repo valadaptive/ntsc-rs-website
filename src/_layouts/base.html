@@ -5,7 +5,7 @@
         <link rel="preload" href="/style.css" as="style">
         <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         {{ header_extras }}
-        <title>{{ title }}</title>
+        <title>{{ title }}{% if title != "ntsc-rs" %} · ntsc-rs {% endif %}</title>
         <link rel="stylesheet" href="/style.css">
         <link rel="icon" href="/assets/images/icon.svg">
         <script src="/assets/main.js"></script>
