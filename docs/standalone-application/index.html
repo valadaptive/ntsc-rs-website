@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preload" href="/style.css" as="style">
+        <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
+        
+        <title>Standalone Application · ntsc-rs </title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/assets/images/icon.svg">
+        <script src="/assets/main.js"></script>
+    </head>
+    <body>
+        <div class="navigation-bar">
+            <a href="/" class="navbar-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+                    <img alt="ntsc-rs logo" class="" loading="lazy" decoding="async" src="/assets/images/ruzwZCdVD3-1280.svg" width="1280" height="256">
+                </picture>
+            </a>
+            <ul class="navigation-pages">
+                <li><a class="navigation-docs  active " href="/docs/getting-started">Documentation</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/releases">Downloads</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/discussions">Discussions</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs">GitHub</a></li>
+            </ul>
+        </div>
+        
+<div class="nav-cols"><div class="navigation-sidebar">
+        <ul><li><a href="/docs/getting-started/">Getting Started</a></li>
+<li><a href="/docs/standalone-application/" class="navigation-active">Standalone Application</a><ul><li><a href="/docs/standalone-installation/">Installation</a></li>
+<li><a href="/docs/standalone-tips/">Tips, Tricks, & Shortcuts</a></li></ul></li>
+<li><a href="/docs/openfx-plugin/">OpenFX Plugin</a></li>
+<li><a href="/docs/after-effects-plugin/">After Effects Plugin</a></li></ul>
+    </div>
+    <div id="content">
+        <h1>Standalone Application</h1>
+        
+<p>
+  Here's an overview of the ntsc-rs standalone GUI. It's divided into two main sections: the effect settings on the left and the preview window on the right. Here's a diagram showing the main parts of the application with the Effect tab selected:
+</p>
+<img alt="A diagram of the standalone ntsc-rs application with various UI components labeled" class="docs-image" loading="lazy" decoding="async" src="/assets/images/zXWYHNYOST-1204.svg" width="1204" height="657">
+
+<section id="left-pane">
+  <h2>Left Pane</h2>
+
+  <section id="tabs">
+    <h3>Tabs</h3>
+    <p>
+      This section, just above the effect/render settings, lets you select between the effect settings and the render settings.
+    </p>
+  </section>
+
+  <section id="effect-settings">
+    <h3>Effect Settings</h3>
+    <p>
+      This section contains all of the effect settings. It's scrollable, so be sure to scroll down to make sure you're accessing all of the settings!
+    </p>
+  </section>
+
+  <section id="editable-value">
+    <h3>Editable Value</h3>
+    <p>
+      This UI component is the textbox next to each slider. You can type in a value here to set the slider to that value, but there are some more tricks up its sleeve.
+    </p>
+    <p>
+      You can click and drag on the textbox itself to change the setting's value as well. Dragging up or to the right increases the value, and dragging down or to the left decreases it.
+    </p>
+    <p>
+      In addition, the textboxes in the effect settings support mathematical expressions. They support the basic arithmetic operators (+, -, *, /), exponentiation (**), parentheses, and a "percentage" operator (%). For example, you can type in "2 + 2.5" to set the value to 4.5, or "4/3" to set the value to 1.333... You can also type in "50%" to set the value to 0.5.
+    </p>
+  </section>
+
+  <section id="settings-group">
+    <h3>Settings Group</h3>
+    <p>
+      Some settings are grouped together. There's an outlined box around all the settings that are part of a group. The group's name is at the top of the box, and it also functions as a checkbox that can be used to disable all the settings within the group.
+    </p>
+  </section>
+
+  <section id="preset-management">
+    <h3>Preset Management</h3>
+    <h3>Save</h3>
+    <p>
+      You can save the current settings to a file by clicking the "Save" button. This will open a file dialog where you can choose where to save the file.
+    </p>
+    <h3>Load</h3>
+    <p>
+      Likewise, you can load settings from a file by clicking the "Load" button. This will also open a file dialog.
+    </p>
+    <h3>Copy</h3>
+    <p>
+      If you want to copy the current settings to the clipboard, you can click the "Copy" button. This will copy the settings in JSON format.
+    </p>
+    <h3>Paste</h3>
+    <p>
+      If you have settings in your clipboard that you want to apply, you can click the "Paste" button. This will open up a textbox where you can paste and then apply the settings.
+    </p>
+    <h3>Reset</h3>
+    <p>
+      If you've made changes to the settings and want to go back to the default settings, you can click the "Reset" button.
+    </p>
+  </section>
+</section>
+
+<section id="right-pane">
+  <h2>Right Pane</h2>
+
+  <section id="file-path">
+    <h3>File Path</h3>
+    <p>
+      The full path of the currently-loaded media.
+    </p>
+  </section>
+
+  <section id="media-info">
+    <h3>Media Info</h3>
+    <p>
+      This section contains information about the currently loaded media. It shows the file path, resolution, and frame rate of the media. If the media is a still image, the frame rate will be an editable text box.
+    </p>
+  </section>
+
+  <section id="save-image">
+    <h3>Save Image</h3>
+    <p>
+      This button lets you save the current frame of the preview window as a PNG image.
+    </p>
+  </section>
+
+  <section id="close-media">
+    <h3>Close Media</h3>
+    <p>
+      This button closes the current media.
+    </p>
+  </section>
+
+  <section id="preview">
+    <h3>Preview</h3>
+    <p>
+      This is where you can see the effect applied to the media. When zoomed in, you can click and drag to pan around the image, or use the scroll wheel. If the <a href="#preview-mode">preview mode</a> is set to "Split", you can click and drag the divider to adjust the split.
+    </p>
+  </section>
+
+  <section id="timeline">
+    <h3>Timeline</h3>
+    <p>
+      This is where you can scrub through the media. You can click and drag the playhead to scrub, or click on the timeline to jump to a specific frame. Holding Ctrl while using the scroll wheel will zoom in and out of the timeline.
+    </p>
+  </section>
+
+  <section id="time">
+    <h3>Time</h3>
+    <p>
+      This is the play/pause button, and the current seek time of the media. You can click and drag on the textbox to change the time, or type in a value.
+    </p>
+    <p>
+      Pressing space will play/pause the media.
+    </p>
+  </section>
+
+  <section id="zoom">
+    <h3>Zoom</h3>
+    <p>
+      This setting lets you set the zoom level of the preview window. As with the <a href="#editable-value">editable value</a> textboxes in the effect settings, you can type in a value or click and drag on the textbox to change the zoom level. Expressions are not supported here. You can enter either a fractional value (e.g. 0.5) or a percentage (e.g. 50%).
+    </p>
+    <p>
+      The "Fit" checkbox will automatically adjust the zoom level so that the entire image fits within the preview window. If the media is smaller than the preview window, the image will be centered.
+    </p>
+  </section>
+
+  <section id="scale">
+    <h3>Scale</h3>
+    <p>
+      This setting lets you set the scale, in scanlines, of the media. This affects not only the preview but the render as well.
+    </p>
+  </section>
+
+  <section id="volume">
+    <h3>Volume</h3>
+    <p>
+      This is the volume slider for the media preview. The button on the left lets you mute the preview entirely. As with the zoom setting, you can click and drag on the textbox to change the volume level, and enter either a fractional value or a percentage.
+    </p>
+  </section>
+
+  <section id="preview-mode">
+    <h3>Preview Mode</h3>
+    <p>
+      This setting lets you choose whether the effect is enabled, disabled, or split-screen. In split-screen mode, the effect is shown on the left, and the original media is shown on the right. You can click and drag the divider to adjust the split.
+    </p>
+</section>
+
+    </div>
+</div>
+
+    </body>
+</html>

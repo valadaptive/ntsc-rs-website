@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preload" href="/style.css" as="style">
+        <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
+        
+        <title>Installation · ntsc-rs </title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/assets/images/icon.svg">
+        <script src="/assets/main.js"></script>
+    </head>
+    <body>
+        <div class="navigation-bar">
+            <a href="/" class="navbar-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+                    <img alt="ntsc-rs logo" class="" loading="lazy" decoding="async" src="/assets/images/ruzwZCdVD3-1280.svg" width="1280" height="256">
+                </picture>
+            </a>
+            <ul class="navigation-pages">
+                <li><a class="navigation-docs  active " href="/docs/getting-started">Documentation</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/releases">Downloads</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/discussions">Discussions</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs">GitHub</a></li>
+            </ul>
+        </div>
+        
+<div class="nav-cols"><div class="navigation-sidebar">
+        <ul><li><a href="/docs/getting-started/">Getting Started</a></li>
+<li><a href="/docs/standalone-application/">Standalone Application</a><ul><li><a href="/docs/standalone-installation/" class="navigation-active">Installation</a></li>
+<li><a href="/docs/standalone-tips/">Tips, Tricks, & Shortcuts</a></li></ul></li>
+<li><a href="/docs/openfx-plugin/">OpenFX Plugin</a></li>
+<li><a href="/docs/after-effects-plugin/">After Effects Plugin</a></li></ul>
+    </div>
+    <div id="content">
+        <h1>Installation</h1>
+        <p>After downloading the correct version of ntsc-rs for your platform, you can run it by following the steps for your platform:</p>
+<h2 id="installation-windows">Windows</h2>
+<p>The GUI requires <a href="https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022">the Microsoft Visual C++ Redistributable</a>. Since a lot of other software does too, you probably already have it installed, but if you get an error about VCRUNTIME140.dll being missing, you need to install it.</p>
+<p>After downloading the ZIP file, extract the <em>entire contents</em> of the ZIP file to a folder of your choice. If you don't do this, the application won't run.</p>
+<p>To run the application, run the <code>ntsc-rs-launcher</code> file. If it does not open, you may need to run the <code>ntsc-rs-standalone</code> file in the <code>bin</code> folder.</p>
+<h2 id="installation-linux">Linux</h2>
+<p>If you're using Linux, the GUI in particular requires GStreamer and some of its plugins to be installed:</p>
+<details>
+<summary>Ubuntu / Debian</summary>
+<pre><code class="language-bash">$ sudo apt-get install libgstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-alsa
+</code></pre>
+</details>
+<details>
+<summary>Fedora</summary>
+<p>In order to decode and encode H.264 video, you'll need packages from the <a href="https://rpmfusion.org/Configuration">RPM Fusion &quot;free&quot; repository</a>.</p>
+<p>After enabling the RPM Fusion &quot;free&quot; repository:</p>
+<pre><code class="language-bash">$ sudo dnf install gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-plugin-libav libavcodec-freeworld
+</code></pre>
+</details>
+<p>You'll probably also need to give execute permissions to the application. This can be found under &quot;Properties &gt; Executable as Program&quot; in the GNOME file manager, and similar places on others. You can also use the terminal (<code>chmod +x ntsc-rs-standalone</code>).</p>
+<h2 id="installation-macos">macOS (experimental)</h2>
+<p>Prebuilt binaries are currently not available for macOS. You'll need to build the application yourself following <a href="https://github.com/valadaptive/ntsc-rs/issues/36#issuecomment-1953132373">these instructions on GitHub</a>.</p>
+
+    </div>
+</div>
+
+    </body>
+</html>

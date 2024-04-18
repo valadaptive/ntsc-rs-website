@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preload" href="/style.css" as="style">
+        <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
+        
+        <title>OpenFX Plugin · ntsc-rs </title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/assets/images/icon.svg">
+        <script src="/assets/main.js"></script>
+    </head>
+    <body>
+        <div class="navigation-bar">
+            <a href="/" class="navbar-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+                    <img alt="ntsc-rs logo" class="" loading="lazy" decoding="async" src="/assets/images/ruzwZCdVD3-1280.svg" width="1280" height="256">
+                </picture>
+            </a>
+            <ul class="navigation-pages">
+                <li><a class="navigation-docs  active " href="/docs/getting-started">Documentation</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/releases">Downloads</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/discussions">Discussions</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs">GitHub</a></li>
+            </ul>
+        </div>
+        
+<div class="nav-cols"><div class="navigation-sidebar">
+        <ul><li><a href="/docs/getting-started/">Getting Started</a></li>
+<li><a href="/docs/standalone-application/">Standalone Application</a><ul><li><a href="/docs/standalone-installation/">Installation</a></li>
+<li><a href="/docs/standalone-tips/">Tips, Tricks, & Shortcuts</a></li></ul></li>
+<li><a href="/docs/openfx-plugin/" class="navigation-active">OpenFX Plugin</a></li>
+<li><a href="/docs/after-effects-plugin/">After Effects Plugin</a></li></ul>
+    </div>
+    <div id="content">
+        <h1>OpenFX Plugin</h1>
+        <p>ntsc-rs is available as an OpenFX plugin. This means that you can use it in a wide variety of video editing software, including DaVinci Resolve, Hitfilm, and Vegas. Here's a quick guide on how to install and use the plugin.</p>
+<p>For a guide on building the plugin, see <a href="https://github.com/valadaptive/ntsc-rs/blob/main/crates/openfx-plugin/README.md">the documentation next to the crate in the code itself</a>.</p>
+<h2>Installation Path</h2>
+<p>After downloading the appropriate OpenFX plugin for your platform, you'll need to install it to the correct path.</p>
+<p>On Windows, you'll need to copy the <code>NtscRs.ofx.bundle</code> folder to <code>C:\Program Files\Common Files\OFX\Plugins</code>.
+On Linux, you'll need to copy the <code>NtscRs.ofx.bundle</code> folder to <code>/usr/OFX/Plugins/</code>.</p>
+<p>You'll need to copy the folder itself, <em>not</em> its contents!</p>
+<h2>Usage</h2>
+<p>Once installed, the plugin should appear under the &quot;Filter&quot; category. In software that groups plugins by vendor instead of by category, such as DaVinci Resolve, it will be under &quot;NtscRs&quot;.</p>
+<img alt="The ntsc-rs effect appearing under the Filter category in an effect menu" class="" loading="lazy" decoding="async" src="/assets/images/L5KVnxnEcy-376.webp" width="376" height="164">
+<h3>Effect Order and Transforms</h3>
+<p>NTSC video itself is quite low-resolution--only 480 lines of vertical resolution. As such, you should apply it to 480p
+footage for best results (both for performance reasons and correctness reasons).</p>
+<p>When doing so, you should be aware of your timeline resolution, and whether effects like ntsc-rs are applied before or
+after its recipient video clip gets resized to fit the timeline.</p>
+<p>If, for example, you place a 480p clip in a 1080p timeline, and add the ntsc-rs effect to it, things could go one of two
+ways, depending on what editing software you use:</p>
+<ul>
+<li>Your editing software applies the ntsc-rs effect to the 480p clip, and then scales it up to 1080p to fit the timeline.
+All is well.</li>
+<li>Your editing software <em>first</em> scales the 480p clip up to 1008p, <em>then</em> applies ntsc-rs. This will produce sub-par,
+possibly unintended results, and ntsc-rs will run much slower because it has to process a 1080p clip.</li>
+</ul>
+<p>In particular, effects applied to a clip in DaVinci Resolve behave the second way. Don't apply the ntsc-rs effect to a
+low-resolution clip in a high-resolution timeline! Instead, either create a new timeline that matches your clip's
+resolution and apply the effect there, or apply the effect in the Fusion panel, where it will be applied prior to
+scaling the clip.</p>
+<h3>sRGB and Gamma</h3>
+<p>OpenFX doesn't specify the color space that effects should operate in. Some editing software (e.g. Natron) performs all
+effect processing in linear space, whereas other software (e.g. Resolve) seems to do it in sRGB space.</p>
+<p>ntsc-rs expects its input to be in sRGB space. If it isn't, the output will appear incorrect--dark areas of the image
+will appear to &quot;glow&quot; and become oversaturated.</p>
+<p>To fix this, an &quot;Apply sRGB gamma&quot; setting is available in the OpenFX version of the plugin only, at the very bottom of the settings. Enabling this checkbox will make ntsc-rs assume that the input is in linear space and apply the sRGB transformation itself.</p>
+<p>Long story short:</p>
+<ul>
+<li>If you use ntsc-rs and notice that dark, desaturated areas of the image become brighter and more saturated, while the
+rest of the image appears more washed-out, check the &quot;Apply sRGB Gamma&quot; box at the bottom of the effect controls.</li>
+<li>If you use ntsc-rs and notice that dark areas of the image become even darker and blown-out, <em>un</em>check the &quot;Apply sRGB
+Gamma&quot; box at the bottom of the effect controls.</li>
+</ul>
+
+    </div>
+</div>
+
+    </body>
+</html>
