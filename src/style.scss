@@ -1,27 +1,230 @@
+@use 'sass:color';
+@use "sass:map";
 @import "/assets/fonts/stylesheet.css";
 
-html, body {
-    width: 100%;
-    height: 100%;
+$beige: #f8f1e6;
+$beige-darker: #ebe1d0;
+$beige-lighter: #fffefc;
+$black: #161518;
+$black-darker: #0d0e0f;
+$black-lighter: #262529;
+$link-color-light-mode: #30597a;
+$link-color-dark-mode: #8de1e7;
+
+@mixin color-scheme($palette) {
+        --text-color: #{map.get($palette, 'text')};
+        --link-color: #{map.get($palette, 'link')};
+        --link-underline: #{color.change(map.get($palette, 'link'), $alpha: 0.5)};
+        --text-underline: #{color.change(map.get($palette, 'text'), $alpha: 0.5)};
+        --background-color: #{map.get($palette, 'background')};
+        --bg-hover: #{map.get($palette, 'background-hover')};
+        --bg-active: #{map.get($palette, 'background-active')};
+        --button-color: #{map.get($palette, 'text')};
+        --button-hover: #{map.get($palette, 'text-hover')};
+        --button-active: #{map.get($palette, 'text-active')};
+        --navbar-color: #{map.get($palette, 'navbar')};
+}
+
+@mixin dark-mode {
+    @include color-scheme((
+        "text": $beige,
+        "text-hover": $beige-lighter,
+        "text-active": $beige-darker,
+        "link": $link-color-dark-mode,
+        "background": $black,
+        "background-hover": $black-lighter,
+        "background-active": $black-darker,
+        "navbar": $black-darker
+    ));
+}
+
+@mixin light-mode {
+    @include color-scheme((
+        "text": $black,
+        "text-hover": $black-lighter,
+        "text-active": $black-darker,
+        "link": $link-color-light-mode,
+        "background": $beige,
+        "background-hover": $beige-darker,
+        "background-active": $beige-lighter,
+        "navbar": $beige-lighter
+    ));
+}
+
+@media(prefers-color-scheme: light) {
+    :root {
+        @include light-mode;
+    }
+}
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        @include dark-mode;
+    }
+}
+
+.light-mode {
+    @include light-mode();
+}
+
+.dark-mode {
+    @include dark-mode();
 }
 
 body {
     margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.625;
 }
 
-#hero {
-    background-image: url("/assets/hero.png");
-    color: #f8f5f0;
-    font-family: "Creato Display", sans-serif;
-    aspect-ratio:  64 / 27;
-    background-size: cover;
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+
+    text-decoration-color: var(--link-underline);
+
+    &:hover {
+        text-decoration-thickness: 2px;
+    }
+}
+
+picture {
+    line-height: 0;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+pre, code {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: var(--bg-active);
+    border-radius: 0.25rem;
+}
+
+.navigation-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    gap: 1rem;
+
+    background-color: var(--navbar-color);
+    padding: 0 1rem;
+}
+
+.navbar-logo {
+    line-height: 0;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+
+    & img {
+        height: 1.5rem;
+        width: auto;
+    }
+}
+
+.navigation-pages {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    & a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0 0.5rem;
+
+        text-decoration: none;
+        color: var(--text-color);
+
+        transition: background-color 0.1s;
+
+        &:hover, &.active {
+            background-color: var(--bg-hover)
+        }
+    }
+}
+
+.navigation-sidebar {
+    height: 100vh;
+    width: 3in;
     position: relative;
+
+    & > ul {
+        position: fixed;
+        top: 4rem;
+        list-style-type: none;
+        padding: 0;
+
+        & > ul {
+            list-style-type: disc;
+        }
+    }
+
+    & .navigation-active {
+        font-weight: bold;
+    }
+
+    a {
+        color: var(--text-color);
+        text-decoration-color: var(--text-underline);
+    }
 }
 
-.hero-text {
-    position: absolute;
-    left: 50%;
-    right: 4rem;
-    padding: 3vw 0;
-    font-size: 5vw;
+.button {
+    background-color: var(--button-color);
+    color: var(--background-color);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: background-color 0.1s;
+
+    &:hover {
+        background-color: var(--button-hover);
+    }
+
+    &:active {
+        background-color: var(--button-active);
+    }
+}
+
+.nav-cols {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#content {
+    padding: 0 2rem 4rem;
+    width: 12in;
+}
+
+.docs-image {
+    max-width: 100%;
+}
+
+.thumbnail-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+        display: flex;
+    }
 }

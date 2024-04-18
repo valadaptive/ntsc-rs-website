@@ -1,15 +1,49 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>ntsc-rs</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div id="hero">
-            <div class="hero-text">
-                The nostalgia of VHS from the comfort of your home computer.
-            </div>
+---
+layout: base.html
+title: ntsc-rs
+header_extras:
+ '<link rel="preload" href="/assets/images/herothumb.webp" as="image">
+ <link rel="preload" href="/landing.css" as="style">
+ <link rel="stylesheet" href="/landing.css">'
+---
+
+<section id="hero">
+    <div class="hero-text">
+        <div class="hero-blurb">The nostalgia of VHS from the comfort of your home computer.</div>
+        <a class="button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases">Download version {{latestRelease.version}}</a>
+    </div>
+    <a class="skip-to-content" href="#landing-content" title="Skip to content"></a>
+</section>
+<section id="landing-content">
+    <div class="hook">
+        {% image "src/assets/images/appdemo.png", "Screenshot of the ntsc-rs application" "hook-image thumbnail" %}
+        <div class="blurb">
+            <header>Your analog dreams, come true</header>
+            <p>ntsc-rs is a free, open-source effect which accurately emulates analog TV and VHS artifacts.</p>
         </div>
-    </body>
-</html>
+    </div>
+    <div class="hook">
+        <div class="blurb">
+            <header>Amazingly accurate</header>
+            <p>Other popular effects eyeball the look of VHS tapes using simple color lookup tables and overlays. ntsc-rs uses algorithms that model how NTSC transmission and VHS encoding actually work, based on algorithms developed in <a href="https://github.com/joncampbell123/composite-video-simulator/">composite-video-simulator</a>, <a href="https://github.com/zhuker/ntsc">zhuker/ntsc</a>, and <a href="https://github.com/JargeZ/ntscqt/">ntscQT</a>.</p>
+        </div>
+        {% image "src/assets/images/sidebyside.png", "Side-by-side comparison between Red Giant Universe VHS and ntsc-rs" "hook-image thumbnail" %}
+    </div>
+    <div class="hook">
+        {% image "src/assets/images/fastcode.png", "An ntsc-rs render which has completed in 15 seconds overlaid atop lines of code" "hook-image" %}
+        <div class="blurb">
+            <header>Blazingly fast</header>
+            <p>ntsc-rs is written in Rust, and is multithreaded and SIMD-accelerated. Unlike other, similar effects, it can run in real time at much higher resolutions than actual NTSC footage.</p>
+        </div>
+    </div>
+    <div class="hook">
+        <div class="blurb">
+            <header>Fits into your video editing workflow</header>
+            <p>ntsc-rs is available not just as a standalone application, but also as a plugin for After Effects and all OpenFX-compatible software. This includes DaVinci Resolve, Hitfilm, and Vegas.</p>
+        </div>
+        {% image "src/assets/images/nledemo.png", "ntsc-rs running as a plugin in nonlinear editing software" "hook-image thumbnail" %}
+    </div>
+</section>
+<section id="download">
+    <a class="button" href="https://github.com/valadaptive/ntsc-rs/releases">Download ntsc-rs version {{latestRelease.version}}</a>
+</section>

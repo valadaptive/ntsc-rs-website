@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preload" href="/style.css" as="style">
+        <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
+        {{ header_extras }}
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/assets/images/icon.svg">
+        <script src="/assets/main.js"></script>
+    </head>
+    <body>
+        <div class="navigation-bar">
+            <a href="/" class="navbar-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+                    {% image "src/assets/images/logo-lightmode.svg" "ntsc-rs logo" %}
+                </picture>
+            </a>
+            <ul class="navigation-pages">
+                <li><a class="navigation-docs {% if nav-slug == "docs" %} active {% endif %}" href="/docs/getting-started">Documentation</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/releases">Downloads</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/discussions">Discussions</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs">GitHub</a></li>
+            </ul>
+        </div>
+        {{ content }}
+    </body>
+</html>

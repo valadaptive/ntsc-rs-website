@@ -1,0 +1,17 @@
+---
+layout: "base.html"
+nav-slug: "docs"
+---
+
+<div class="nav-cols">
+    {%- if eleventyNavigation -%}
+        {%- set navKey = eleventyNavigation.key -%}
+    {%- endif -%}
+    <div class="navigation-sidebar">
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({activeKey: navKey, activeAnchorClass: 'navigation-active'}) | safe }}
+    </div>
+    <div id="content">
+        <h1>{{ title }}</h1>
+        {{ content | safe }}
+    </div>
+</div>
