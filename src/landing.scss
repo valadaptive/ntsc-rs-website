@@ -4,7 +4,6 @@
     aspect-ratio:  64 / 27;
     background-size: cover;
     position: relative;
-    line-height: 1;
 }
 
 .hero-text {
@@ -18,6 +17,7 @@
     font-family: 'Creato Display', sans-serif;
     font-size: 5vw;
     margin-bottom: 1rem;
+    line-height: 1;
 }
 
 .skip-to-content {
