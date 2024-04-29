@@ -38,7 +38,7 @@ ways, depending on what editing software you use:
 
 - Your editing software applies the ntsc-rs effect to the 480p clip, and then scales it up to 1080p to fit the timeline.
   All is well.
-- Your editing software *first* scales the 480p clip up to 1008p, *then* applies ntsc-rs. This will produce sub-par,
+- Your editing software *first* scales the 480p clip up to 1080p, *then* applies ntsc-rs. This will produce sub-par,
   possibly unintended results, and ntsc-rs will run much slower because it has to process a 1080p clip.
 
 In particular, effects applied to a clip in DaVinci Resolve behave the second way. Don't apply the ntsc-rs effect to a
