@@ -19,6 +19,6 @@ Currently, only Windows and Linux are supported out of the box. <a href="https:/
 Follow the instructions for:
 <ul>
     <li><a href="/docs/standalone-installation">the standalone application.</a></li>
-    <li><a href="/docs/openfx-installation">the OpenFX plugin.</a></li>
+    <li><a href="/docs/openfx-plugin">the OpenFX plugin.</a></li>
     <li><a href="/docs/after-effects-plugin">the After Effects / Premiere plugin.</a></li>
 </ul>
