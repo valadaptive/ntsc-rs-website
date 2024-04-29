@@ -13,6 +13,7 @@ const apiResponse = fetch('https://api.github.com/repos/valadaptive/ntsc-rs/rele
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(eleventySass);
     eleventyConfig.addPassthroughCopy("src/assets");
+    eleventyConfig.addPassthroughCopy("src/robots.txt");
 
     eleventyConfig.addShortcode("image", async function(src, alt, className = '') {
         let metadata = await Image(src, {
