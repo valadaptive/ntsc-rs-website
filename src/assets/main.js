@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+function main() {
     const thumbnailOverlay = document.createElement('div');
     thumbnailOverlay.classList.add('thumbnail-overlay');
     thumbnailOverlay.addEventListener('click', event => {
@@ -22,4 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
             thumbnailOverlay.classList.add('active');
         });
     }
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', main);
+} else {
+    main();
+}
