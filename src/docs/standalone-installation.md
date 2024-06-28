@@ -41,6 +41,14 @@ $ sudo dnf install gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good gs
 ```
 </details>
 
+<details>
+<summary>Arch</summary>
+
+```bash
+$ sudo pacman -S gstreamer gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly
+```
+</details>
+
 You'll probably also need to give execute permissions to the application. This can be found under "Properties > Executable as Program" in the GNOME file manager, and similar places on others. You can also use the terminal (`chmod +x ntsc-rs-standalone`).
 
 <h2 id="installation-macos">macOS (experimental)</h2>
