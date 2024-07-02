@@ -35,7 +35,8 @@
 <li><a href="/docs/standalone-application/">Standalone Application</a><ul><li><a href="/docs/standalone-installation/">Installation</a></li>
 <li><a href="/docs/standalone-tips/">Tips, Tricks, & Shortcuts</a></li></ul></li>
 <li><a href="/docs/openfx-plugin/">OpenFX Plugin</a></li>
-<li><a href="/docs/after-effects-plugin/">After Effects / Premiere Plugin</a></li></ul>
+<li><a href="/docs/after-effects-plugin/">After Effects / Premiere Plugin</a></li>
+<li><a href="/docs/macos-build/">Building ntsc-rs for macOS</a></li></ul>
         </div>
     </details>
     <div id="content">
@@ -44,7 +45,7 @@
 <h2>Downloading</h2>
 You can download the latest version of ntsc-rs from <a href="https://github.com/valadaptive/ntsc-rs/releases">the GitHub releases section</a>.
 <p>Download the correct version for your platform and whichever type you prefer (standalone or OpenFX).</p>
-<p>Currently, only Windows and Linux are supported out of the box. macOS builds are not currently provided--see below for instructions on building it yourself.</p>
+<p>Currently, only Windows and Linux are supported out of the box. macOS builds are not currently provided--follow <a href="../macos-build">the macOS build instructions</a> to try building it yourself.</p>
 <h2>Installation</h2>
 Follow the instructions for:
 <ul>
@@ -52,36 +53,7 @@ Follow the instructions for:
     <li><a href="/docs/openfx-plugin">the OpenFX plugin.</a></li>
     <li><a href="/docs/after-effects-plugin">the After Effects / Premiere plugin.</a></li>
 </ul>
-<details>
-<summary>Building ntsc-rs on macOS</summary>
-<p>Official macOS builds for ntsc-rs are in the works. For now, here's how to build the standalone application and OpenFX plugin yourself in <a href="https://support.apple.com/guide/terminal/welcome/mac">the terminal</a>:</p>
-<ol>
-<li>Install <a href="https://rustup.rs/">rustup</a> and use it to install the latest stable version of Rust:<pre><code>rustup install stable
-</code></pre>
-</li>
-<li>Install <a href="https://brew.sh/">brew</a> and use it to install GStreamer:<pre><code>brew install --cask gstreamer-runtime
-brew install --cask gstreamer-development
-</code></pre>
-</li>
-<li>Clone the ntsc-rs Git repository, making sure to include submodules, and switch to the <code>macos</code> branch:<pre><code>git clone --recurse-submodules https://github.com/valadaptive/ntsc-rs.git
-cd ntsc-rs
-git checkout macos
-</code></pre>
-</li>
-<li>Add the GStreamer tooling to your PATH:<pre><code>export PATH=$PATH:/Library/Frameworks/GStreamer.framework/Versions/1.0/bin
-export PKG_CONFIG_PATH=/Library/Frameworks/GStreamer.framework/Versions/1.0/lib/pkgconfig
-</code></pre>
-</li>
-<li>Build the standalone app and/or the OpenFX plugin:<pre><code># To build the standalone app (output will be in the `build` folder)
-cargo xtask macos-bundle --release
 
-# To build the OpenFX plugin (output will be in `crates/openfx-plugin/build`)
-cargo xtask build-ofx-plugin --macos-universal --release
-</code></pre>
-</li>
-</ol>
-<p>If you run into any problems, feel free to ask for help in <a href="https://github.com/valadaptive/ntsc-rs/issues/36">this GitHub issue thread</a> (though note that the instructions provided there are outdated, and this documentation supersedes it).</p>
-</details>
     </div>
 </div>
 
