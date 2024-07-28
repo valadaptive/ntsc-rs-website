@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preload" href="/style.css" as="style">
+        <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
+        
+        <title>Building ntsc-rs from source · ntsc-rs </title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/assets/images/icon.svg">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="/assets/main.js" defer async></script>
+    </head>
+    <body>
+        <div class="navigation-bar">
+            <a href="/" class="navbar-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+                    <img alt="ntsc-rs logo" class="" loading="lazy" decoding="async" src="/assets/images/ruzwZCdVD3-1280.svg" width="1280" height="256">
+                </picture>
+            </a>
+            <ul class="navigation-pages">
+                <li><a class="navigation-docs  active " href="/docs/getting-started/">Documentation</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/releases">Downloads</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/discussions">Discussions</a></li>
+                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs">GitHub</a></li>
+            </ul>
+        </div>
+        
+<div class="nav-cols"><details class="navigation-details" open>
+        <summary class="navigation-summary">Navigation</summary>
+        <div class="navigation-sidebar">
+            <ul><li><a href="/docs/getting-started/">Getting Started</a></li>
+<li><a href="/docs/standalone-application/">Standalone Application</a><ul><li><a href="/docs/standalone-installation/">Installation</a></li>
+<li><a href="/docs/standalone-tips/">Tips, Tricks, & Shortcuts</a></li></ul></li>
+<li><a href="/docs/openfx-plugin/">OpenFX Plugin</a></li>
+<li><a href="/docs/after-effects-plugin/">After Effects / Premiere Plugin</a></li>
+<li><a href="/docs/building-from-source/" class="navigation-active">Building ntsc-rs from source</a></li></ul>
+        </div>
+    </details>
+    <div id="content">
+        <h1>Building ntsc-rs from source</h1>
+        <h2>Install Rust</h2>
+<p>The first step is to install the latest version of Rust. Even if you're using Linux and Rust is available in your package manager, the version may be too outdated to build ntsc-rs.</p>
+<p>To obtain the latest stable version of Rust, <a href="https://rustup.rs/">install rustup</a> and then run:</p>
+<pre><code>rustup install stable
+</code></pre>
+<p>You may need to close and reopen your terminal after this.</p>
+<h2>Clone the repository</h2>
+<p>Make sure to include submodules when cloning the repository if you want the OpenFX plugin to build properly:</p>
+<pre><code>git clone --recurse-submodules https://github.com/valadaptive/ntsc-rs.git
+cd ntsc-rs
+</code></pre>
+<p>If you've already cloned the repository without submodules, you can initialize them via:</p>
+<pre><code>git submodule update --init --recursive
+</code></pre>
+<h2>Platform-specific instructions</h2>
+<p>After installing Rust and cloning the repository, the steps are platform-specific:</p>
+<details>
+<summary>Windows</summary>
+<ol>
+<li>
+<p>Download and run the <a href="https://gstreamer.freedesktop.org/download/#windows">MSVC versions of the runtime and development GStreamer installers</a> (only necessary for the standalone application).</p>
+</li>
+<li>
+<p>If you installed GStreamer, follow their <a href="https://crates.io/crates/gstreamer#windows">instructions for setting the <code>PATH</code> environment variable</a>.
+Currently, those instructions don't provide instructions for PowerShell--in such a case, you can set <code>PATH</code> via:</p>
+<pre><code>$Env:PATH += &quot;;C:\gstreamer\1.0\msvc_x86_64\bin&quot;
+</code></pre>
+<p>(replace the path with the actual install location of GStreamer.)</p>
+</li>
+<li>
+<p>Build the standalone app, OpenFX plugin, and/or After Effects plugin:</p>
+<pre><code># Build the standalone app (the output will be `target/release/ntsc-rs-standalone`)
+# Note that `ntsc-rs-launcher` won't work--it's only meant for the downloadable distribution
+cargo build -p gui --release
+
+# Build the OpenFX plugin (the output will be `crates/openfx-plugin/build/NtscRs.ofx.bundle`)
+cargo xtask build-ofx-plugin --release
+
+# Build the After Effects plugin (the output will be `target/ae_plugin.dll`)
+# To install it, copy + rename the .dll to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\ntsc-rs-ae.aex`
+cargo build -p ae-plugin --release
+</code></pre>
+</li>
+</ol>
+</details>
+<details>
+<summary>macOS</summary>
+<ol>
+<li>
+<p>Install <a href="https://brew.sh/">brew</a> and use it to install GStreamer (only necessary for the standalone application):</p>
+<pre><code>brew install --cask gstreamer-runtime
+brew install --cask gstreamer-development
+</code></pre>
+</li>
+<li>
+<p>Add the GStreamer tooling to your PATH (only necessary for the standalone application):</p>
+<pre><code>export PATH=$PATH:/Library/Frameworks/GStreamer.framework/Versions/1.0/bin
+export PKG_CONFIG_PATH=/Library/Frameworks/GStreamer.framework/Versions/1.0/lib/pkgconfig
+</code></pre>
+</li>
+<li>
+<p>Build the standalone app, OpenFX plugin, and/or After Effects plugin:</p>
+<pre><code># To build the standalone app (output will be in the `build` folder)
+cargo xtask macos-bundle --release
+
+# To build the OpenFX plugin (output will be in `crates/openfx-plugin/build`)
+cargo xtask build-ofx-plugin --macos-universal --release
+
+# To build the After Effects plugin (output will be in the `build` folder)
+cargo xtask macos-ae-plugin --macos-universal --release
+</code></pre>
+</li>
+</ol>
+</details>
+<details>
+<summary>Linux</summary>
+<ol>
+<li>
+<p>Follow the part of the <a href="../standalone-installation#installation-linux">standalone installation instructions</a> about installing GStreamer. In addition, you'll need to install the GStreamer development packages:</p>
+<ul>
+<li>For <strong>Ubuntu/Debian</strong>:<pre><code>sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+</code></pre>
+</li>
+<li>For <strong>Fedora</strong>:<pre><code>sudo dnf install gstreamer1-devel gstreamer1-plugins-base-devel
+</code></pre>
+</li>
+<li>For <strong>Arch</strong>, the development files are included with the packages already.</li>
+</ul>
+</li>
+<li>
+<p>Build the standalone app and OpenFX plugin:</p>
+<pre><code># Build the standalone app (the output will be `target/release/ntsc-rs-standalone`)
+cargo build -p gui --release
+
+# To build the OpenFX plugin (output will be in `crates/openfx-plugin/build`)
+cargo xtask build-ofx-plugin --release
+</code></pre>
+</li>
+</ol>
+
+    </div>
+</div>
+
+    </body>
+</html>
