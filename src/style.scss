@@ -145,6 +145,7 @@ code {
         display: flex;
         align-items: center;
         height: 100%;
+        box-sizing: border-box;
         padding: 0.125rem 0.5rem;
 
         text-decoration: none;
@@ -251,6 +252,11 @@ code {
 
     &.active {
         display: flex;
+    }
+
+    & > img {
+        max-width: calc(100% - 2rem);
+        max-height: calc(100% - 2rem);
     }
 }
 
