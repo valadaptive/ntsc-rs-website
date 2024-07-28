@@ -8,7 +8,7 @@ eleventyNavigation:
 
 ntsc-rs is available as an OpenFX plugin. This means that you can use it in a wide variety of video editing software, including DaVinci Resolve, Hitfilm, and Vegas. Here's a quick guide on how to install and use the plugin.
 
-For a guide on building the plugin, see [the documentation next to the crate in the code itself](https://github.com/valadaptive/ntsc-rs/blob/main/crates/openfx-plugin/README.md).
+For a guide on building the plugin, see [the documentation next to the crate in the code itself](https://github.com/valadaptive/ntsc-rs/blob/main/crates/openfx-plugin/README.md) and [the more general build instructions](../building-from-source).
 
 ## Installation Path
 
