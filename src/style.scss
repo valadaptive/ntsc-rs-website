@@ -16,6 +16,7 @@ $link-color-dark-mode: #8de1e7;
     --link-color: #{map.get($palette, 'link')};
     --link-underline: #{color.change(map.get($palette, 'link'), $alpha: 0.5)};
     --text-underline: #{color.change(map.get($palette, 'text'), $alpha: 0.5)};
+    --separator: #{color.change(map.get($palette, 'text'), $alpha: 0.25)};
     --background-color: #{map.get($palette, 'background')};
     --bg-hover: #{map.get($palette, 'background-hover')};
     --bg-active: #{map.get($palette, 'background-active')};
@@ -163,9 +164,13 @@ code {
         position: fixed;
         list-style-type: none;
         padding: 0;
+        width: 3in;
 
-        & > ul {
-            list-style-type: disc;
+        & ul {
+            list-style-type: none;
+            padding: 0;
+            margin-left: 0.25in;
+            border-left: 2px solid var(--separator);
         }
     }
 
@@ -175,7 +180,14 @@ code {
 
     a {
         color: var(--text-color);
-        text-decoration-color: var(--text-underline);
+        text-decoration: none;
+        display: block;
+        padding: 0.25rem 0.5rem;
+        transition: background-color 0.1s;
+
+        &:hover {
+            background-color: var(--bg-hover);
+        }
     }
 }
 
