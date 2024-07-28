@@ -13,7 +13,7 @@ You can download the latest version of ntsc-rs from <a href="https://github.com/
 
 Download the correct version for your platform and whichever type you prefer (standalone or OpenFX).
 
-Currently, only Windows and Linux are supported out of the box. macOS builds are not currently provided--follow [the macOS build instructions](../macos-build) to try building it yourself.
+Currently, only Windows and Linux are supported out of the box. macOS builds are not currently provided--follow [the build instructions](../building-from-source) to try building it yourself.
 
 <h2>Installation</h2>
 Follow the instructions for:

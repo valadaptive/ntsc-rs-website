@@ -53,4 +53,4 @@ You'll probably also need to give execute permissions to the application. This c
 
 <h2 id="installation-macos">macOS (experimental)</h2>
 
-Prebuilt binaries are currently not available for macOS. You'll need to build the application yourself following [these instructions](../macos-build).
+Prebuilt binaries are currently not available for macOS. You'll need to build the application yourself following [these instructions](../building-from-source).
