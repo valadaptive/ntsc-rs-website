@@ -1,6 +1,7 @@
 const eleventySass = require('eleventy-sass');
-const Image = require("@11ty/eleventy-img");
-const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+// eslint-disable-next-line no-redeclare
+const Image = require('@11ty/eleventy-img');
+const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 
 const apiResponse = fetch('https://api.github.com/repos/valadaptive/ntsc-rs/releases/latest', {
     headers: {
@@ -12,43 +13,43 @@ const apiResponse = fetch('https://api.github.com/repos/valadaptive/ntsc-rs/rele
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(eleventySass);
-    eleventyConfig.addPassthroughCopy("src/assets");
-    eleventyConfig.addPassthroughCopy("src/robots.txt");
+    eleventyConfig.addPassthroughCopy('src/assets');
+    eleventyConfig.addPassthroughCopy('src/robots.txt');
 
-    eleventyConfig.addShortcode("image", async function(src, alt, className = '') {
-        let metadata = await Image(src, {
-            widths: ["auto"],
-            formats: ["svg", "webp"],
+    eleventyConfig.addShortcode('image', async function(src, alt, className = '') {
+        const metadata = await Image(src, {
+            widths: ['auto'],
+            formats: ['svg', 'webp'],
             svgShortCircuit: true,
-            urlPath: "/assets/images/",
-            outputDir: "_site/assets/images/",
+            urlPath: '/assets/images/',
+            outputDir: '_site/assets/images/'
         });
 
-        let imageAttributes = {
+        const imageAttributes = {
             alt,
             class: className,
-            loading: "lazy",
-            decoding: "async"
+            loading: 'lazy',
+            decoding: 'async'
         };
 
         return Image.generateHTML(metadata, imageAttributes);
     });
 
-    eleventyConfig.addGlobalData("latestRelease", async function() {
+    eleventyConfig.addGlobalData('latestRelease', async function() {
         const release = await apiResponse;
         release.version = release.name.replace('v', '');
-        return release
+        return release;
     });
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
     return {
         dir: {
-            input: "src",
-            output: "_site",
-            includes: "_includes",
-            layouts: "_layouts",
-            data: "_data"
+            input: 'src',
+            output: '_site',
+            includes: '_includes',
+            layouts: '_layouts',
+            data: '_data'
         }
     };
-}
+};
