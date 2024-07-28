@@ -16,7 +16,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets');
     eleventyConfig.addPassthroughCopy('src/robots.txt');
 
-    eleventyConfig.addShortcode('image', async function(src, alt, className = '') {
+    eleventyConfig.addShortcode('image', async function(src, alt, className = '', style = '') {
         const metadata = await Image(src, {
             widths: ['auto'],
             formats: ['svg', 'webp'],
@@ -29,7 +29,8 @@ module.exports = function(eleventyConfig) {
             alt,
             class: className,
             loading: 'lazy',
-            decoding: 'async'
+            decoding: 'async',
+            style
         };
 
         return Image.generateHTML(metadata, imageAttributes);

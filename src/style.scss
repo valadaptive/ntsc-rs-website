@@ -136,13 +136,16 @@ code {
 
     & li {
         display: inline-block;
+        // This allows the items to transition from a row to a grid as the screen narrows
+        flex-grow: 1;
+        flex-basis: 0;
     }
 
     & a {
         display: flex;
         align-items: center;
         height: 100%;
-        padding: 0 0.5rem;
+        padding: 0.125rem 0.5rem;
 
         text-decoration: none;
         color: var(--text-color);
@@ -222,6 +225,11 @@ code {
     padding: 0 2rem 4rem;
     width: 12in;
     box-sizing: border-box;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 .docs-image {
@@ -254,7 +262,7 @@ img.thumbnail {
     display: none;
 }
 
-@media (max-width: 50rem) {
+@media (max-width: 8in) {
     .nav-cols {
         flex-direction: column;
         gap: 0;
