@@ -17,6 +17,10 @@ After downloading the ZIP file, extract the <em>entire contents</em> of the ZIP 
 
 To run the application, run the `ntsc-rs-launcher` file. If it does not open, you may need to run the `ntsc-rs-standalone` file in the `bin` folder.
 
+<h2 id="installation-macos">macOS</h2>
+
+Follow [these instructions](../macos-installation) for running the installer. After installation, the standalone application can be found in your Applications folder.
+
 <h2 id="installation-linux">Linux</h2>
 
 If you're using Linux, the GUI in particular requires GStreamer and some of its plugins to be installed:
@@ -50,7 +54,3 @@ $ sudo pacman -S gstreamer gst-libav gst-plugins-bad gst-plugins-base gst-plugin
 </details>
 
 You'll probably also need to give execute permissions to the application. This can be found under "Properties > Executable as Program" in the GNOME file manager, and similar places on others. You can also use the terminal (`chmod +x ntsc-rs-standalone`).
-
-<h2 id="installation-macos">macOS (experimental)</h2>
-
-Prebuilt binaries are currently not available for macOS. You'll need to build the application yourself following [these instructions](../building-from-source).

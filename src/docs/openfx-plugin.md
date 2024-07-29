@@ -14,8 +14,9 @@ For a guide on building the plugin, see [the documentation next to the crate in 
 
 After downloading the appropriate OpenFX plugin for your platform, you'll need to install it to the correct path.
 
-On Windows, you'll need to copy the `NtscRs.ofx.bundle` folder to `C:\Program Files\Common Files\OFX\Plugins`.
-On Linux, you'll need to copy the `NtscRs.ofx.bundle` folder to `/usr/OFX/Plugins/`.
+- On Windows, you'll need to copy the `NtscRs.ofx.bundle` folder to `C:\Program Files\Common Files\OFX\Plugins`.
+- On macOS, follow [these instructions](../macos-installation) for running the installer. After installation, the plugin can be found in `/Library/OFX/Plugins/`.
+- On Linux, you'll need to copy the `NtscRs.ofx.bundle` folder to `/usr/OFX/Plugins/`.
 
 You'll need to copy the folder itself, *not* its contents!
 
