@@ -1,4 +1,5 @@
-const eleventySass = require('eleventy-sass');
+const path = require('node:path');
+const sass = require('sass');
 // eslint-disable-next-line no-redeclare
 const Image = require('@11ty/eleventy-img');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
@@ -12,7 +13,6 @@ const apiResponse = fetch('https://api.github.com/repos/valadaptive/ntsc-rs/rele
 }).then(response => response.json());
 
 module.exports = function(eleventyConfig) {
-    eleventyConfig.addPlugin(eleventySass);
     eleventyConfig.addPassthroughCopy('src/assets');
     eleventyConfig.addPassthroughCopy('src/robots.txt');
 
@@ -43,6 +43,24 @@ module.exports = function(eleventyConfig) {
     });
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+    eleventyConfig.addTemplateFormats('scss');
+    eleventyConfig.addExtension('scss', {
+        outputFileExtension: 'css',
+        compile(inputContent, inputPath) {
+            const parsed = path.parse(inputPath);
+            const result = sass.compileString(inputContent, {
+                loadPaths: [
+                    parsed.dir || '.',
+                    this.config.dir.includes
+                ]
+            });
+
+            this.addDependencies(inputPath, result.loadedUrls);
+
+            return () => result.css;
+        }
+    });
 
     return {
         dir: {
