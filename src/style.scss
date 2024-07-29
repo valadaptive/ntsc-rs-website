@@ -88,6 +88,18 @@ a {
     }
 }
 
+.external-link::after {
+    content: "";
+    display: inline-block;
+    width: 1.5ex;
+    height: 1ex;
+    background-color: currentColor;
+    mask-image: url('assets/images/external-link.svg');
+    mask-size: 1ex 1ex;
+    mask-repeat: no-repeat;
+    mask-position: 0.5ex 0;
+}
+
 picture {
     line-height: 0;
 }
@@ -147,6 +159,7 @@ code {
         height: 100%;
         box-sizing: border-box;
         padding: 0.125rem 0.5rem;
+        white-space: nowrap;
 
         text-decoration: none;
         color: var(--text-color);
