@@ -5,7 +5,7 @@
         <link rel="preload" href="/style.css" as="style">
         <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         
-        <title>Getting Started · ntsc-rs </title>
+        <title>Installing ntsc-rs on macOS · ntsc-rs </title>
         <link rel="stylesheet" href="/style.css">
         <link rel="icon" href="/assets/images/icon.svg">
         
@@ -31,29 +31,23 @@
 <div class="nav-cols"><details class="navigation-details" open>
         <summary class="navigation-summary">Navigation</summary>
         <div class="navigation-sidebar">
-            <ul><li><a href="/docs/getting-started/" class="navigation-active">Getting Started</a></li>
+            <ul><li><a href="/docs/getting-started/">Getting Started</a></li>
 <li><a href="/docs/standalone-application/">Standalone Application</a><ul><li><a href="/docs/standalone-installation/">Installation</a></li>
 <li><a href="/docs/standalone-tips/">Tips, Tricks, & Shortcuts</a></li></ul></li>
 <li><a href="/docs/openfx-plugin/">OpenFX Plugin</a></li>
 <li><a href="/docs/after-effects-plugin/">After Effects / Premiere Plugin</a></li>
-<li><a href="/docs/macos-installation/">Installing ntsc-rs on macOS</a></li>
+<li><a href="/docs/macos-installation/" class="navigation-active">Installing ntsc-rs on macOS</a></li>
 <li><a href="/docs/building-from-source/">Building ntsc-rs from source</a></li></ul>
         </div>
     </details>
     <div id="content">
-        <h1>Getting Started</h1>
-        <p>ntsc-rs is available as a standalone application, an OpenFX plugin, and an After Effects / Premiere plugin.</p>
-<h2>Downloading</h2>
-You can download the latest version of ntsc-rs from <a href="https://github.com/valadaptive/ntsc-rs/releases">the GitHub releases section</a>.
-<p>Download the correct version for your platform and whichever type you prefer (standalone or OpenFX).</p>
-<p>Currently, only Windows and Linux are supported out of the box. macOS builds are not currently provided--follow <a href="../building-from-source">the build instructions</a> to try building it yourself.</p>
-<h2>Installation</h2>
-Follow the instructions for:
-<ul>
-    <li><a href="/docs/standalone-installation">the standalone application.</a></li>
-    <li><a href="/docs/openfx-plugin">the OpenFX plugin.</a></li>
-    <li><a href="/docs/after-effects-plugin">the After Effects / Premiere plugin.</a></li>
-</ul>
+        <h1>Installing ntsc-rs on macOS</h1>
+        <p>Currently, ntsc-rs is not signed with an Apple developer certificate. This means that Gatekeeper will not allow the <code>.pkg</code> installer files to run.</p>
+<p>In order to install ntsc-rs, be it the standalone application or plugins, first open the <code>.pkg</code> installer file for the distribution of ntsc-rs you want to install (application, OpenFX plugin, or After Effects plugin). It will display this dialog:</p>
+<img alt="An error message stating: &quot;ntsc-rs-macos-standalone.pkg&quot; cannot be opened because it is from an unidentified developer. macOS cannot verify that this app is free from malware." class="thumbnail" loading="lazy" decoding="async" style="width: 260px" src="/assets/images/6iKdkoURDc-520.webp" width="520" height="616">
+<p>After dismissing this dialog, open System Settings and go to the Privacy &amp; Security tab. Scrolling most of the way down, you'll reach the Security section, where you can allow the installer to &quot;Open Anyway&quot;:</p>
+<img alt="The System Settings window, with the Privacy &amp; Security tab selected, and a notice about the installer displayed with an &quot;Open Anyway&quot; button" class="thumbnail" loading="lazy" decoding="async" style="width: 715px" src="/assets/images/1mPhC0IOQJ-1430.webp" width="1430" height="940">
+<p>Once you allow the installer itself to run, the actual application or plugin installed should work with no further Gatekeeper actions necessary. If it displays a similar error to the one above, you can find the same option in System Settings.</p>
 
     </div>
 </div>

@@ -22,9 +22,9 @@
             </a>
             <ul class="navigation-pages">
                 <li><a class="navigation-docs  active " href="/docs/getting-started/">Documentation</a></li>
-                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/releases">Downloads</a></li>
-                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs/discussions">Discussions</a></li>
-                <li><a class="navigation-external" href="https://github.com/valadaptive/ntsc-rs">GitHub</a></li>
+                <li><a class="external" href="https://github.com/valadaptive/ntsc-rs/releases"><span class="external-link">Downloads</span></a></li>
+                <li><a class="external" href="https://github.com/valadaptive/ntsc-rs/discussions"><span class="external-link">Discussions</span></a></li>
+                <li><a class="external" href="https://github.com/valadaptive/ntsc-rs"><span class="external-link">GitHub</span></a></li>
             </ul>
         </div>
         
@@ -36,6 +36,7 @@
 <li><a href="/docs/standalone-tips/">Tips, Tricks, & Shortcuts</a></li></ul></li>
 <li><a href="/docs/openfx-plugin/">OpenFX Plugin</a></li>
 <li><a href="/docs/after-effects-plugin/">After Effects / Premiere Plugin</a></li>
+<li><a href="/docs/macos-installation/">Installing ntsc-rs on macOS</a></li>
 <li><a href="/docs/building-from-source/">Building ntsc-rs from source</a></li></ul>
         </div>
     </details>
@@ -46,6 +47,8 @@
 <p>The GUI requires <a href="https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022">the Microsoft Visual C++ Redistributable</a>. Since a lot of other software does too, you probably already have it installed, but if you get an error about VCRUNTIME140.dll being missing, you need to install it.</p>
 <p>After downloading the ZIP file, extract the <em>entire contents</em> of the ZIP file to a folder of your choice. If you don't do this, the application won't run.</p>
 <p>To run the application, run the <code>ntsc-rs-launcher</code> file. If it does not open, you may need to run the <code>ntsc-rs-standalone</code> file in the <code>bin</code> folder.</p>
+<h2 id="installation-macos">macOS</h2>
+<p>Follow <a href="../macos-installation">these instructions</a> for running the installer. After installation, the standalone application can be found in your Applications folder.</p>
 <h2 id="installation-linux">Linux</h2>
 <p>If you're using Linux, the GUI in particular requires GStreamer and some of its plugins to be installed:</p>
 <details>
@@ -66,8 +69,6 @@
 </code></pre>
 </details>
 <p>You'll probably also need to give execute permissions to the application. This can be found under &quot;Properties &gt; Executable as Program&quot; in the GNOME file manager, and similar places on others. You can also use the terminal (<code>chmod +x ntsc-rs-standalone</code>).</p>
-<h2 id="installation-macos">macOS (experimental)</h2>
-<p>Prebuilt binaries are currently not available for macOS. You'll need to build the application yourself following <a href="../building-from-source">these instructions</a>.</p>
 
     </div>
 </div>
