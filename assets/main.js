@@ -2,9 +2,15 @@ function main() {
     const thumbnailOverlay = document.createElement('div');
     thumbnailOverlay.classList.add('thumbnail-overlay');
     thumbnailOverlay.tabIndex = 0;
+    let thumbnailedImage = null;
 
     const hideThumbnail = () => {
         thumbnailOverlay.classList.remove('active');
+
+        if (thumbnailedImage) {
+            thumbnailedImage.focus();
+            thumbnailedImage = null;
+        }
     };
 
     thumbnailOverlay.addEventListener('click', event => {
@@ -29,6 +35,10 @@ function main() {
             const image = document.createElement('img');
             image.src = thumbnailable.src;
             image.alt = thumbnailable.alt;
+            // If the image is currently focused, set thumbnailedImage so focus will be restored to it when the overlay is closed
+            if (document.activeElement === thumbnailable) {
+                thumbnailedImage = thumbnailable;
+            }
 
             thumbnailOverlay.replaceChildren(image);
             thumbnailOverlay.classList.add('active');
