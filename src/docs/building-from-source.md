@@ -92,7 +92,7 @@ After installing Rust and cloning the repository, the steps are platform-specifi
 <summary>Linux</summary>
 
 1. Follow the part of the [standalone installation instructions](../standalone-installation#installation-linux) about installing GStreamer. In addition, you'll need to install the GStreamer development packages:
-    - For **Ubuntu/Debian**:
+    - For **Ubuntu, Debian, and Linux Mint**:
       ```
       sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
       ```
