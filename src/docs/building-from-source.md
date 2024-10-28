@@ -54,7 +54,7 @@ After installing Rust and cloning the repository, the steps are platform-specifi
    # Build the OpenFX plugin (the output will be `crates/openfx-plugin/build/NtscRs.ofx.bundle`)
    cargo xtask build-ofx-plugin --release
 
-   # Build the After Effects plugin (the output will be `target/ae_plugin.dll`)
+   # Build the After Effects plugin (the output will be `target/release/ae_plugin.dll`)
    # To install it, copy + rename the .dll to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\ntsc-rs-ae.aex`
    cargo build -p ae-plugin --release
    ```

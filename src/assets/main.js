@@ -35,7 +35,8 @@ function main() {
             const image = document.createElement('img');
             image.src = thumbnailable.src;
             image.alt = thumbnailable.alt;
-            // If the image is currently focused, set thumbnailedImage so focus will be restored to it when the overlay is closed
+            // If the image is currently focused, set thumbnailedImage so focus will be restored to it when the overlay
+            // is closed
             if (document.activeElement === thumbnailable) {
                 thumbnailedImage = thumbnailable;
             }
