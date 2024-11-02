@@ -3,7 +3,7 @@ layout: docs.njk
 title: Building ntsc-rs from source
 eleventyNavigation:
   key: Building ntsc-rs from source
-  order: 5
+  order: 6
 ---
 
 ## Install Rust
