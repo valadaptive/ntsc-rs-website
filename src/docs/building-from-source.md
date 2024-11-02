@@ -16,6 +16,12 @@ rustup install stable
 ```
 You may need to close and reopen your terminal after this.
 
+## Install rust-bindgen's requirements (OpenFX only)
+
+If you want to build the OpenFX plugin, you'll need to [install some dependencies for the rust-bindgen tool to work](https://rust-lang.github.io/rust-bindgen/requirements.html).
+
+If you're not building the OpenFX plugin, you can ignore this part.
+
 ## Clone the repository
 
 Make sure to include submodules when cloning the repository if you want the OpenFX plugin to build properly:
@@ -91,7 +97,8 @@ After installing Rust and cloning the repository, the steps are platform-specifi
 <details>
 <summary>Linux</summary>
 
-1. Follow the part of the [standalone installation instructions](../standalone-installation#installation-linux) about installing GStreamer. In addition, you'll need to install the GStreamer development packages:
+1. Install the dependencies listed in the [standalone installation instructions](../standalone-installation#installation-linux).
+2. In addition to the GStreamer runtime packages listed in the above step, you'll need to install the GStreamer development packages:
     - For **Ubuntu, Debian, and Linux Mint**:
       ```
       sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
@@ -102,7 +109,7 @@ After installing Rust and cloning the repository, the steps are platform-specifi
       ```
     - For **Arch**, the development files are included with the packages already.
 
-2. Build the standalone app and OpenFX plugin:
+3. Build the standalone app and OpenFX plugin:
    ```
    # Build the standalone app (the output will be `target/release/ntsc-rs-standalone`)
    cargo build -p gui --release

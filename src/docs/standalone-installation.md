@@ -26,7 +26,7 @@ Follow [these instructions](../macos-installation) for running the installer. Af
 If you're using Linux, the GUI in particular requires GStreamer and some of its plugins to be installed:
 
 <details>
-<summary>Ubuntu / Debian</summary>
+<summary>Ubuntu, Debian, and Linux Mint</summary>
 
 ```bash
 $ sudo apt-get install libgstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-alsa
