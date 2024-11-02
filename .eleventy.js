@@ -1,8 +1,10 @@
-const path = require('node:path');
-const sass = require('sass');
+import * as path from 'node:path';
+import * as sass from 'sass';
 // eslint-disable-next-line no-redeclare
-const Image = require('@11ty/eleventy-img');
-const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+import Image from '@11ty/eleventy-img';
+import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
+
+console.log(Image, eleventyNavigationPlugin);
 
 const apiResponse = fetch('https://api.github.com/repos/valadaptive/ntsc-rs/releases/latest', {
     headers: {
@@ -12,7 +14,7 @@ const apiResponse = fetch('https://api.github.com/repos/valadaptive/ntsc-rs/rele
     }
 }).then(response => response.json());
 
-module.exports = function(eleventyConfig) {
+export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets');
     eleventyConfig.addPassthroughCopy('src/robots.txt');
 
