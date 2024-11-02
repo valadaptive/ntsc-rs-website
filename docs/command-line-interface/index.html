@@ -5,7 +5,7 @@
         <link rel="preload" href="/style.css" as="style">
         <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         
-        <title>Getting Started · ntsc-rs </title>
+        <title>Command-line interface · ntsc-rs </title>
         <link rel="stylesheet" href="/style.css">
         <link rel="icon" href="/assets/images/icon.svg">
         
@@ -31,29 +31,38 @@
 <div class="nav-cols"><details class="navigation-details" open>
         <summary class="navigation-summary">Navigation</summary>
         <div class="navigation-sidebar">
-            <ul><li><a href="/docs/getting-started/" class="navigation-active">Getting Started</a></li>
+            <ul><li><a href="/docs/getting-started/">Getting Started</a></li>
 <li><a href="/docs/standalone-application/">Standalone Application</a><ul><li><a href="/docs/standalone-installation/">Installation</a></li>
 <li><a href="/docs/standalone-tips/">Tips, Tricks, & Shortcuts</a></li></ul></li>
 <li><a href="/docs/openfx-plugin/">OpenFX Plugin</a></li>
 <li><a href="/docs/after-effects-plugin/">After Effects / Premiere Plugin</a></li>
-<li><a href="/docs/command-line-interface/">Command-line interface</a></li>
+<li><a href="/docs/command-line-interface/" class="navigation-active">Command-line interface</a></li>
 <li><a href="/docs/macos-installation/">Installing ntsc-rs on macOS</a></li>
 <li><a href="/docs/building-from-source/">Building ntsc-rs from source</a></li></ul>
         </div>
     </details>
     <div id="content">
-        <h1>Getting Started</h1>
-        <p>ntsc-rs is available as a standalone application, an OpenFX plugin, and an After Effects / Premiere plugin.</p>
-<h2>Downloading</h2>
-You can download the latest version of ntsc-rs from <a href="https://github.com/valadaptive/ntsc-rs/releases">the GitHub releases section</a>.
-<p>Download the correct version for your OS (Windows, macOS, or Linux) and whichever type you prefer (standalone, After Effects, or OpenFX).</p>
-<h2>Installation</h2>
-Follow the instructions for:
-<ul>
-    <li><a href="/docs/standalone-installation">the standalone application.</a></li>
-    <li><a href="/docs/openfx-plugin">the OpenFX plugin.</a></li>
-    <li><a href="/docs/after-effects-plugin">the After Effects / Premiere plugin.</a></li>
-</ul>
+        <h1>Command-line interface</h1>
+        <p>ntsc-rs's standalone distribution includes not only a GUI but also a CLI (command-line interface), distributed as a separate binary.</p>
+<h2>Location</h2>
+<h3>Windows</h3>
+<p>On Windows, the <code>ntsc-rs-cli</code> binary is in the <code>bin</code> folder, amidst all of the GStreamer libraries it uses.</p>
+<h3>macOS</h3>
+<p>On macOS, the <code>ntsc-rs-cli</code> binary is inside the <code>ntsc-rs.app</code> bundle. If you've installed it to your Applications folder, its path will be:</p>
+<pre><code>/Applications/ntsc-rs.app/Contents/MacOS/ntsc-rs-cli
+</code></pre>
+<p>For the purposes of keeping everything encapsulated in one app bundle and not leaving any cruft behind if you decide to delete it, the above path is the only default way to access it. However, you can create a shortcut so that you can use <code>ntsc-rs-cli</code> as a regular command:</p>
+<pre><code>ln -s /Applications/ntsc-rs.app/Contents/MacOS/ntsc-rs-cli /usr/local/bin/ntsc-rs-cli
+</code></pre>
+<h3>Linux</h3>
+<p>On Linux, the <code>ntsc-rs-cli</code> binary is right next to <code>ntsc-rs-standalone</code>, and should be easy to find since GStreamer's libraries are not bundled alongside it.</p>
+<h2>Usage</h2>
+<p>Detailed help for all of the command-line flags can be found in using <code>ntsc-rs-cli --help</code>. While you can technically type the contents of JSON presets directly into the command, it's meant to be used with pre-existing preset files. Here's a basic template:</p>
+<pre><code>ntsc-rs-cli -i &lt;input file&gt; -o &lt;output file&gt; -p &lt;preset file&gt;
+</code></pre>
+<h3>Scripting</h3>
+<p>The CLI will not overwrite files by default. When running in an interactive terminal, it will prompt the user as to whether or not it should overwrite the output file.</p>
+<p>To avoid holding up scripts by prompting the user, you can use the <code>-y</code>/<code>--overwrite</code> flag to always overwrite existing files, or the <code>-n</code>/<code>--no-overwrite</code> flag to never overwrite existing files.</p>
 
     </div>
 </div>

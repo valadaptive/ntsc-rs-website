@@ -36,6 +36,7 @@
 <li><a href="/docs/standalone-tips/">Tips, Tricks, & Shortcuts</a></li></ul></li>
 <li><a href="/docs/openfx-plugin/">OpenFX Plugin</a></li>
 <li><a href="/docs/after-effects-plugin/">After Effects / Premiere Plugin</a></li>
+<li><a href="/docs/command-line-interface/">Command-line interface</a></li>
 <li><a href="/docs/macos-installation/">Installing ntsc-rs on macOS</a></li>
 <li><a href="/docs/building-from-source/">Building ntsc-rs from source</a></li></ul>
         </div>
@@ -46,7 +47,7 @@
 <p>
   Here's an overview of the ntsc-rs standalone GUI. It's divided into two main sections: the effect settings on the left and the preview window on the right. Here's a diagram showing the main parts of the application with the Effect tab selected:
 </p>
-<img alt="A diagram of the standalone ntsc-rs application with various UI components labeled" class="thumbnail" loading="lazy" decoding="async" style="" src="/assets/images/PKOMKqXsnm-1204.svg" width="1204" height="657">
+<img alt="A diagram of the standalone ntsc-rs application with various UI components labeled" class="thumbnail" loading="lazy" decoding="async" style="" src="/assets/images/2JXsaqiya9-1204.svg" width="1204" height="657">
 
 <section id="left-pane">
   <h2>Left Pane</h2>
@@ -55,6 +56,16 @@
     <h3>Tabs</h3>
     <p>
       This section, just above the effect/render settings, lets you select between the effect settings and the render settings.
+    </p>
+  </section>
+
+  <section id="scale">
+    <h3>Scale</h3>
+    <p>
+      This setting lets you set the scale, in scanlines, of the media. This affects not only the preview but the render as well.
+    </p>
+    <p>
+      You can also select the filter to use when scaling the media. "Bicubic" is around 20% slower but provides smoother and crisper results, especially when scaling to less than half of the original size.
     </p>
   </section>
 
@@ -201,13 +212,6 @@
     </p>
     <p>
       The "Fit" checkbox will automatically adjust the zoom level so that the entire image fits within the preview window. If the media is smaller than the preview window, the image will be centered.
-    </p>
-  </section>
-
-  <section id="scale">
-    <h3>Scale</h3>
-    <p>
-      This setting lets you set the scale, in scanlines, of the media. This affects not only the preview but the render as well.
     </p>
   </section>
 
