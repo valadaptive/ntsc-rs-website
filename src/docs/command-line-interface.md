@@ -3,7 +3,7 @@ layout: docs.njk
 title: Command-line interface
 eleventyNavigation:
   key: Command-line interface
-  order: 4
+  order: 5
 ---
 
 ntsc-rs's standalone distribution includes not only a GUI but also a CLI (command-line interface), distributed as a separate binary.

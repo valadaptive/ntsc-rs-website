@@ -1,0 +1,71 @@
+---
+layout: base.html
+nav-slug: download
+title: Download
+description: ntsc-rs is a free, open-source video effect, usable as a standalone application and as an OpenFX and After Effects / Premiere plugin, which accurately emulates analog TV and VHS artifacts. It is written in Rust, and is multithreaded and SIMD-accelerated.
+header_extras:
+ '<link rel="preload" href="/assets/images/herothumb.webp" as="image">
+ <link rel="preload" href="/download.css" as="style">
+ <link rel="stylesheet" href="/download.css">
+ <script src="/assets/download.js" defer async></script>'
+---
+
+<section id="hero">
+    <div class="hero-bg">
+        <div class="hero-text">
+            <div class="hero-header">Download ntsc&#8209;rs v{{latestRelease.version}}</div>
+            <select id="os-menu" class="button">
+                {% for os in releaseArtifacts %}
+                <option value="{{os.key}}">{{os.name}}</option>
+                {% endfor %}
+            </select>
+            {% for os in releaseArtifacts %}
+                <div class="os-buttons {{os.key}} {% if os.key == "windows" %}active{% endif %}">
+                    {% for dist in os.dists %}
+                        <a rel="noreferrer" download class="download-button button dark-mode" href="{{dist.asset.browser_download_url}}" data-docs-url="{{dist.docs}}">
+                            <div class="dist-name">{{dist.name}}</div>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="hero-footer">
+            <a href="https://github.com/valadaptive/ntsc-rs/releases">View all releases and release notes on GitHub</a>
+        </div>
+    </div>
+</section>
+
+<div id="content">
+    <h1>Which one should I download?</h1>
+
+    <ul>
+        <li>
+            <p>
+                <strong>Standalone application:</strong> Use this if you use video editing software that doesn't support the plugins offered, you want a drop-in replacement for ntscQT, or you really need fine-grained control over interlacing.
+            </p>
+            <p>
+                If you're using Kdenlive, Blender, the free version of Hitfilm, Final Cut, or any web-based video editing software, you'll need to use the standalone application.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>OpenFX plugin:</strong> Use this if your video editing software supports OpenFX plugins.
+            </p>
+            <p>
+                OpenFX-compatible editing software includes DaVinci Resolve, MAGIX Vegas (nee Sony Vegas), Hitfilm Pro, Nuke, and possibly the paid version of Filmora.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>After Effects/Premiere plugin:</strong> What it says on the tin. Use this if you edit using the Adobe suite.
+            </p>
+        </li>
+    </ul>
+
+    <h1>System requirements</h1>
+    <ul>
+        <li><strong>Windows:</strong> 10 or newer.</li>
+        <li><strong>macOS:</strong> 10.13 or newer.</li>
+        <li><strong>Linux:</strong> Latest LTS release of most distributions. <a href="https://github.com/valadaptive/ntsc-rs/issues/224">Debian: stable or newer.</a></li>
+    </ul>
+</div>

@@ -3,7 +3,7 @@ layout: docs.njk
 title: OpenFX Plugin
 eleventyNavigation:
   key: OpenFX Plugin
-  order: 2
+  order: 3
 ---
 
 ntsc-rs is available as an OpenFX plugin. This means that you can use it in a wide variety of video editing software, including DaVinci Resolve, Hitfilm, and Vegas. Here's a quick guide on how to install and use the plugin.

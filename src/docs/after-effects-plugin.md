@@ -3,7 +3,7 @@ layout: docs.njk
 title: After Effects / Premiere Plugin
 eleventyNavigation:
   key: After Effects / Premiere Plugin
-  order: 3
+  order: 4
 ---
 
 ntsc-rs is available as a plugin for Adobe After Effects and Adobe Premiere.

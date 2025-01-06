@@ -3,7 +3,7 @@ layout: docs.njk
 title: Installing ntsc-rs on macOS
 eleventyNavigation:
   key: Installing ntsc-rs on macOS
-  order: 5
+  order: 6
 ---
 
 Currently, ntsc-rs is not signed with an Apple developer certificate. This means that Gatekeeper will not allow the `.pkg` installer files to run.

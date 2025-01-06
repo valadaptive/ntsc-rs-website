@@ -3,15 +3,17 @@ layout: docs.njk
 title: Migrating from ntscQT
 eleventyNavigation:
   key: Migrating from ntscQT
-  order: 7
+  order: 8
 ---
 
 ## Why migrate from ntscQT?
 
 I originally contributed some (still unmerged) improvements to ntscQT, then developed ntsc-rs as a Rust rewrite of it. ntscQT is no longer maintained, and ntsc-rs is one of the recommended alternatives.
 
+### Speed
 The biggest reason, and the one touted on the main page, is speed. In one test, ntscQT took 1 minute, 36 seconds to render a 30-second 480p video. ntsc-rs (on an 8-core CPU) rendered the same video with the same settings in 4.5 seconds. That's a **20x speed improvement!** On CPUs with fewer cores, you may not see as much of an improvement, but it should still be faster by around an order of magnitude.
 
+### Usability
 Another reason is usability--aside from the speed benefits allowing a live preview, I've put work into making ntsc-rs much more pleasant to use. Of particular note is the **controls**: ntscQT has less flexibility in the effect options, and some of them are even hidden and cannot be changed or viewed by the user, even though the "randomize" button does change them!
 
 ## Using and adapting ntscQT presets
