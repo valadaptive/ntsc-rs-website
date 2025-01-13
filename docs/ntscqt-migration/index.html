@@ -3,7 +3,7 @@
         <link rel="preload" href="/style.css" as="style">
         <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         
-        <title>After Effects / Premiere Plugin · ntsc-rs </title>
+        <title>Migrating from ntscQT · ntsc-rs </title>
         <link rel="stylesheet" href="/style.css">
         <link rel="icon" href="/assets/images/icon.svg">
         
@@ -34,28 +34,25 @@
 <li><a href="/docs/standalone-application/">Standalone Application</a><ul><li><a href="/docs/standalone-installation/">Installation</a></li>
 <li><a href="/docs/standalone-tips/">Tips, Tricks, &amp; Shortcuts</a></li></ul></li>
 <li><a href="/docs/openfx-plugin/">OpenFX Plugin</a></li>
-<li><a href="/docs/after-effects-plugin/" class="navigation-active">After Effects / Premiere Plugin</a></li>
+<li><a href="/docs/after-effects-plugin/">After Effects / Premiere Plugin</a></li>
 <li><a href="/docs/command-line-interface/">Command-line interface</a></li>
 <li><a href="/docs/macos-installation/">Installing ntsc-rs on macOS</a></li>
 <li><a href="/docs/building-from-source/">Building ntsc-rs from source</a></li>
-<li><a href="/docs/ntscqt-migration/">Migrating from ntscQT</a></li></ul>
+<li><a href="/docs/ntscqt-migration/" class="navigation-active">Migrating from ntscQT</a></li></ul>
         </div>
     </details>
     <div id="content">
-        <h1>After Effects / Premiere Plugin</h1>
-        <p>ntsc-rs is available as a plugin for Adobe After Effects and Adobe Premiere.</p>
-<p>For a guide on building the plugin, see <a href="https://github.com/valadaptive/ntsc-rs/blob/main/crates/ae-plugin/README.md" class="external-link">the documentation in the code itself</a> and <a href="../building-from-source">the more general build instructions</a>.</p>
-<h2>Installation (Windows)</h2>
-<p>After downloading the plugin, you'll need to copy the <code>ntsc-rs-ae.aex</code> file within the .zip to <code>C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\</code>.</p>
-<h2>Installation (macOS)</h2>
-<p>Follow <a href="../macos-installation">these instructions</a> for running the installer. After installation, the plugin can be found in <code>/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/</code>.</p>
-<h2>Usage</h2>
-<p>Once installed, the plugin should appear under the "Stylize" category.</p>
-<img alt="The ntsc-rs effect appearing under the Stylize category in the &quot;Effects and Presets&quot; panel" class="" loading="lazy" decoding="async" style="" src="/assets/images/JFlcx5SfoB-208.webp" width="208" height="577">
-<h3>Effect Order and Transforms</h3>
-<p>NTSC video itself is quite low-resolution--only 480 lines of vertical resolution. As such, you should apply it to 480p
-footage for best results (both for performance reasons and correctness reasons).</p>
-<p>In After Effects, this can be done by applying ntsc-rs via an adjustment layer atop a 480p composition.</p>
+        <h1>Migrating from ntscQT</h1>
+        <h2>Why migrate from ntscQT?</h2>
+<p>I originally contributed some (still unmerged) improvements to ntscQT, then developed ntsc-rs as a Rust rewrite of it. ntscQT is no longer maintained, and ntsc-rs is one of the recommended alternatives.</p>
+<h3>Speed</h3>
+<p>The biggest reason, and the one touted on the main page, is speed. In one test, ntscQT took 1 minute, 36 seconds to render a 30-second 480p video. ntsc-rs (on an 8-core CPU) rendered the same video with the same settings in 4.5 seconds. That's a <strong>20x speed improvement!</strong> On CPUs with fewer cores, you may not see as much of an improvement, but it should still be faster by around an order of magnitude.</p>
+<h3>Usability</h3>
+<p>Another reason is usability--aside from the speed benefits allowing a live preview, I've put work into making ntsc-rs much more pleasant to use. Of particular note is the <strong>controls</strong>: ntscQT has less flexibility in the effect options, and some of them are even hidden and cannot be changed or viewed by the user, even though the "randomize" button does change them!</p>
+<h2>Using and adapting ntscQT presets</h2>
+<p>ntsc-rs v0.9.1 and up supports loading ntscQT presets directly. Click the "📝" button in the bottom left of the ntscQT window to copy your settings, and paste them into ntsc-rs. You can also load them directly from files (just like ntsc-rs presets) in ntsc-rs.</p>
+<p>The mapping is not one-to-one. Some settings in ntsc-rs behave differently from ntscQT, and some things are implemented differently and approximated when translating the settings into the ntsc-rs format. You may need to make further adjustments.</p>
+<p>Note that one default setting in ntscQT is <strong>inaccurate</strong>: the "Scanline phase shift" setting. For real NTSC footage, it is always 180 degrees. However, most ntscQT presets have it set to 90 degrees. <strong>For the best accuracy, change the "Scanline phase shift" setting to "180 degrees" after importing your ntscQT preset!</strong></p>
 
     </div>
 </div>

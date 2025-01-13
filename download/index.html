@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <link rel="preload" href="/style.css" as="style">
+        <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
+        <link rel="preload" href="/assets/images/herothumb.webp" as="image"> <link rel="preload" href="/download.css" as="style"> <link rel="stylesheet" href="/download.css"> <script src="/assets/download.js" defer="" async=""></script>
+        <title>Download · ntsc-rs </title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/assets/images/icon.svg">
+        
+        <meta name="description" content="ntsc-rs is a free, open-source video effect, usable as a standalone application and as an OpenFX and After Effects / Premiere plugin, which accurately emulates analog TV and VHS artifacts. It is written in Rust, and is multithreaded and SIMD-accelerated.">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="/assets/main.js" defer="" async=""></script>
+    </head>
+    <body>
+        <div class="navigation-bar">
+            <a href="/" class="navbar-logo">
+                <picture>
+                    <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+                    <img alt="ntsc-rs logo" class="" loading="lazy" decoding="async" style="" src="/assets/images/ruzwZCdVD3-1280.svg" width="1280" height="256">
+                </picture>
+            </a>
+            <ul class="navigation-pages">
+                <li><a class="navigation-docs " href="/docs/getting-started/">Documentation</a></li>
+                <li><a class="navigation-download  active " href="/download">Download</a></li>
+                <li><a class="external" href="https://github.com/valadaptive/ntsc-rs/discussions"><span class="external-link">Discussions</span></a></li>
+                <li><a class="external" href="https://github.com/valadaptive/ntsc-rs"><span class="external-link">GitHub</span></a></li>
+            </ul>
+        </div>
+        
+<section id="hero">
+    <div class="hero-bg">
+        <div class="hero-text">
+            <div class="hero-header">Download ntsc‑rs v0.9.1</div>
+            <select id="os-menu" class="button">
+                
+                <option value="windows">Windows</option>
+                
+                <option value="macos">MacOS</option>
+                
+                <option value="linux">Linux</option>
+                
+            </select>
+            
+                <div class="os-buttons windows active">
+                    
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.1/ntsc-rs-windows-standalone.zip" data-docs-url="/docs/standalone-installation/">
+                            <div class="dist-name">Standalone application</div>
+                        </a>
+                    
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.1/ntsc-rs-windows-openfx.zip" data-docs-url="/docs/openfx-plugin/">
+                            <div class="dist-name">OpenFX plugin</div>
+                        </a>
+                    
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.1/ntsc-rs-windows-afterfx.zip" data-docs-url="/docs/after-effects-plugin/">
+                            <div class="dist-name">After Effects/Premiere plugin</div>
+                        </a>
+                    
+                </div>
+            
+                <div class="os-buttons macos ">
+                    
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.1/ntsc-rs-macos-standalone.pkg" data-docs-url="/docs/standalone-installation/">
+                            <div class="dist-name">Standalone application</div>
+                        </a>
+                    
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.1/ntsc-rs-macos-openfx.pkg" data-docs-url="/docs/openfx-plugin/">
+                            <div class="dist-name">OpenFX plugin</div>
+                        </a>
+                    
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.1/ntsc-rs-macos-afterfx.pkg" data-docs-url="/docs/after-effects-plugin/">
+                            <div class="dist-name">After Effects/Premiere plugin</div>
+                        </a>
+                    
+                </div>
+            
+                <div class="os-buttons linux ">
+                    
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.1/ntsc-rs-linux-standalone.zip" data-docs-url="/docs/standalone-installation/">
+                            <div class="dist-name">Standalone application</div>
+                        </a>
+                    
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.1/ntsc-rs-linux-openfx.zip" data-docs-url="/docs/openfx-plugin/">
+                            <div class="dist-name">OpenFX plugin</div>
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div class="hero-footer">
+            <a href="https://github.com/valadaptive/ntsc-rs/releases" class="external-link">View all releases and release notes on GitHub</a>
+        </div>
+    </div>
+</section>
+
+<div id="content">
+    <h1>Which one should I download?</h1>
+
+    <ul>
+        <li>
+            <p>
+                <strong>Standalone application:</strong> Use this if you use video editing software that doesn't support the plugins offered, you want a drop-in replacement for ntscQT, or you really need fine-grained control over interlacing.
+            </p>
+            <p>
+                If you're using Kdenlive, Blender, the free version of Hitfilm, Final Cut, or any web-based video editing software, you'll need to use the standalone application.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>OpenFX plugin:</strong> Use this if your video editing software supports OpenFX plugins.
+            </p>
+            <p>
+                OpenFX-compatible editing software includes DaVinci Resolve, MAGIX Vegas (nee Sony Vegas), Hitfilm Pro, Nuke, and possibly the paid version of Filmora.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>After Effects/Premiere plugin:</strong> What it says on the tin. Use this if you edit using the Adobe suite.
+            </p>
+        </li>
+    </ul>
+
+    <h1>System requirements</h1>
+    <ul>
+        <li><strong>Windows:</strong> 10 or newer.</li>
+        <li><strong>macOS:</strong> 10.13 or newer.</li>
+        <li><strong>Linux:</strong> Latest LTS release of most distributions. <a href="https://github.com/valadaptive/ntsc-rs/issues/224" class="external-link">Debian: stable or newer.</a></li>
+    </ul>
+</div>
+
+    
+
+</body></html>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+<!DOCTYPE html><html lang="en"><head>
         <meta charset="UTF-8">
         <link rel="preload" href="/style.css" as="style">
         <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
@@ -9,8 +7,8 @@
         <link rel="stylesheet" href="/style.css">
         <link rel="icon" href="/assets/images/icon.svg">
         
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="/assets/main.js" defer async></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="/assets/main.js" defer="" async=""></script>
     </head>
     <body>
         <div class="navigation-bar">
@@ -22,29 +20,31 @@
             </a>
             <ul class="navigation-pages">
                 <li><a class="navigation-docs  active " href="/docs/getting-started/">Documentation</a></li>
-                <li><a class="external" href="https://github.com/valadaptive/ntsc-rs/releases"><span class="external-link">Downloads</span></a></li>
+                <li><a class="navigation-download " href="/download">Download</a></li>
                 <li><a class="external" href="https://github.com/valadaptive/ntsc-rs/discussions"><span class="external-link">Discussions</span></a></li>
                 <li><a class="external" href="https://github.com/valadaptive/ntsc-rs"><span class="external-link">GitHub</span></a></li>
             </ul>
         </div>
         
-<div class="nav-cols"><details class="navigation-details" open>
+<div class="nav-cols"><details class="navigation-details" open="">
         <summary class="navigation-summary">Navigation</summary>
         <div class="navigation-sidebar">
             <ul><li><a href="/docs/getting-started/">Getting Started</a></li>
+<li><a href="/docs/faq/">Frequently Asked Questions</a></li>
 <li><a href="/docs/standalone-application/">Standalone Application</a><ul><li><a href="/docs/standalone-installation/">Installation</a></li>
-<li><a href="/docs/standalone-tips/">Tips, Tricks, & Shortcuts</a></li></ul></li>
+<li><a href="/docs/standalone-tips/">Tips, Tricks, &amp; Shortcuts</a></li></ul></li>
 <li><a href="/docs/openfx-plugin/" class="navigation-active">OpenFX Plugin</a></li>
 <li><a href="/docs/after-effects-plugin/">After Effects / Premiere Plugin</a></li>
 <li><a href="/docs/command-line-interface/">Command-line interface</a></li>
 <li><a href="/docs/macos-installation/">Installing ntsc-rs on macOS</a></li>
-<li><a href="/docs/building-from-source/">Building ntsc-rs from source</a></li></ul>
+<li><a href="/docs/building-from-source/">Building ntsc-rs from source</a></li>
+<li><a href="/docs/ntscqt-migration/">Migrating from ntscQT</a></li></ul>
         </div>
     </details>
     <div id="content">
         <h1>OpenFX Plugin</h1>
         <p>ntsc-rs is available as an OpenFX plugin. This means that you can use it in a wide variety of video editing software, including DaVinci Resolve, Hitfilm, and Vegas. Here's a quick guide on how to install and use the plugin.</p>
-<p>For a guide on building the plugin, see <a href="https://github.com/valadaptive/ntsc-rs/blob/main/crates/openfx-plugin/README.md">the documentation next to the crate in the code itself</a> and <a href="../building-from-source">the more general build instructions</a>.</p>
+<p>For a guide on building the plugin, see <a href="https://github.com/valadaptive/ntsc-rs/blob/main/crates/openfx-plugin/README.md" class="external-link">the documentation next to the crate in the code itself</a> and <a href="../building-from-source">the more general build instructions</a>.</p>
 <h2>Installation Path</h2>
 <p>After downloading the appropriate OpenFX plugin for your platform, you'll need to install it to the correct path.</p>
 <ul>
@@ -54,7 +54,7 @@
 </ul>
 <p>You'll need to copy the folder itself, <em>not</em> its contents!</p>
 <h2>Usage</h2>
-<p>Once installed, the plugin should appear under the &quot;Filter&quot; category. In software that groups plugins by vendor instead of by category, such as DaVinci Resolve, it will be under &quot;NtscRs&quot;.</p>
+<p>Once installed, the plugin should appear under the "Filter" category. In software that groups plugins by vendor instead of by category, such as DaVinci Resolve, it will be under "NtscRs".</p>
 <img alt="The ntsc-rs effect appearing under the Filter category in an effect menu" class="" loading="lazy" decoding="async" style="" src="/assets/images/L5KVnxnEcy-376.webp" width="376" height="164">
 <h3>Effect Order and Transforms</h3>
 <p>NTSC video itself is quite low-resolution--only 480 lines of vertical resolution. As such, you should apply it to 480p
@@ -77,18 +77,19 @@ scaling the clip.</p>
 <p>OpenFX doesn't specify the color space that effects should operate in. Some editing software (e.g. Natron) performs all
 effect processing in linear space, whereas other software (e.g. Resolve) seems to do it in sRGB space.</p>
 <p>ntsc-rs expects its input to be in sRGB space. If it isn't, the output will appear incorrect--dark areas of the image
-will appear to &quot;glow&quot; and become oversaturated.</p>
-<p>To fix this, an &quot;Apply sRGB gamma&quot; setting is available in the OpenFX version of the plugin only, at the very bottom of the settings. Enabling this checkbox will make ntsc-rs assume that the input is in linear space and apply the sRGB transformation itself.</p>
+will appear to "glow" and become oversaturated.</p>
+<p>To fix this, an "Apply sRGB gamma" setting is available in the OpenFX version of the plugin only, at the very bottom of the settings. Enabling this checkbox will make ntsc-rs assume that the input is in linear space and apply the sRGB transformation itself.</p>
 <p>Long story short:</p>
 <ul>
 <li>If you use ntsc-rs and notice that dark, desaturated areas of the image become brighter and more saturated, while the
-rest of the image appears more washed-out, check the &quot;Apply sRGB Gamma&quot; box at the bottom of the effect controls.</li>
-<li>If you use ntsc-rs and notice that dark areas of the image become even darker and blown-out, <em>un</em>check the &quot;Apply sRGB
-Gamma&quot; box at the bottom of the effect controls.</li>
+rest of the image appears more washed-out, check the "Apply sRGB Gamma" box at the bottom of the effect controls.</li>
+<li>If you use ntsc-rs and notice that dark areas of the image become even darker and blown-out, <em>un</em>check the "Apply sRGB
+Gamma" box at the bottom of the effect controls.</li>
 </ul>
 
     </div>
 </div>
 
-    </body>
-</html>
+    
+
+</body></html>

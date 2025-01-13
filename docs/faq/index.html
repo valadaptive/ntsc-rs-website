@@ -3,7 +3,7 @@
         <link rel="preload" href="/style.css" as="style">
         <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         
-        <title>After Effects / Premiere Plugin · ntsc-rs </title>
+        <title>Frequently Asked Questions · ntsc-rs </title>
         <link rel="stylesheet" href="/style.css">
         <link rel="icon" href="/assets/images/icon.svg">
         
@@ -30,11 +30,11 @@
         <summary class="navigation-summary">Navigation</summary>
         <div class="navigation-sidebar">
             <ul><li><a href="/docs/getting-started/">Getting Started</a></li>
-<li><a href="/docs/faq/">Frequently Asked Questions</a></li>
+<li><a href="/docs/faq/" class="navigation-active">Frequently Asked Questions</a></li>
 <li><a href="/docs/standalone-application/">Standalone Application</a><ul><li><a href="/docs/standalone-installation/">Installation</a></li>
 <li><a href="/docs/standalone-tips/">Tips, Tricks, &amp; Shortcuts</a></li></ul></li>
 <li><a href="/docs/openfx-plugin/">OpenFX Plugin</a></li>
-<li><a href="/docs/after-effects-plugin/" class="navigation-active">After Effects / Premiere Plugin</a></li>
+<li><a href="/docs/after-effects-plugin/">After Effects / Premiere Plugin</a></li>
 <li><a href="/docs/command-line-interface/">Command-line interface</a></li>
 <li><a href="/docs/macos-installation/">Installing ntsc-rs on macOS</a></li>
 <li><a href="/docs/building-from-source/">Building ntsc-rs from source</a></li>
@@ -42,20 +42,13 @@
         </div>
     </details>
     <div id="content">
-        <h1>After Effects / Premiere Plugin</h1>
-        <p>ntsc-rs is available as a plugin for Adobe After Effects and Adobe Premiere.</p>
-<p>For a guide on building the plugin, see <a href="https://github.com/valadaptive/ntsc-rs/blob/main/crates/ae-plugin/README.md" class="external-link">the documentation in the code itself</a> and <a href="../building-from-source">the more general build instructions</a>.</p>
-<h2>Installation (Windows)</h2>
-<p>After downloading the plugin, you'll need to copy the <code>ntsc-rs-ae.aex</code> file within the .zip to <code>C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\</code>.</p>
-<h2>Installation (macOS)</h2>
-<p>Follow <a href="../macos-installation">these instructions</a> for running the installer. After installation, the plugin can be found in <code>/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/</code>.</p>
-<h2>Usage</h2>
-<p>Once installed, the plugin should appear under the "Stylize" category.</p>
-<img alt="The ntsc-rs effect appearing under the Stylize category in the &quot;Effects and Presets&quot; panel" class="" loading="lazy" decoding="async" style="" src="/assets/images/JFlcx5SfoB-208.webp" width="208" height="577">
-<h3>Effect Order and Transforms</h3>
-<p>NTSC video itself is quite low-resolution--only 480 lines of vertical resolution. As such, you should apply it to 480p
-footage for best results (both for performance reasons and correctness reasons).</p>
-<p>In After Effects, this can be done by applying ntsc-rs via an adjustment layer atop a 480p composition.</p>
+        <h1>Frequently Asked Questions</h1>
+        <h2>Does ntsc-rs include an audio effect?</h2>
+<p>No. I don't have any experience with audio processing, and others have already done a far better job than I could. If you're looking for a realistic emulation of VHS audio, I'd recommend <a href="https://chowdsp.com/products.html#tape" class="external-link">the Chow Tape Model effect</a>.</p>
+<h2>Can I use ntsc-rs on Android, iOS, or the Web?</h2>
+<p>Unfortunately, none of those platforms are supported at the moment. It's unlikely that apps for iOS or Android will ever be released, but in the long term, it's possible that I'll make an ntsc-rs webapp.</p>
+<h2>Is ntsc-rs like ntscQT?</h2>
+<p>Yes. I developed ntsc-rs as a "faster ntscQT", and added new features from there. ntscQT has since been officially discontinued, and ntsc-rs is one of its recommended replacements. To learn more, see <a href="/docs/ntscqt-migration">the migration guide</a>.</p>
 
     </div>
 </div>

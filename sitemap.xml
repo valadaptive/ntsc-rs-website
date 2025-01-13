@@ -1,64 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!--?xml version="1.0" encoding="utf-8"?--><html><head></head><body><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
             <loc>https://ntsc.rs/docs/after-effects-plugin/</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
         <url>
             <loc>https://ntsc.rs/docs/building-from-source/</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
         <url>
             <loc>https://ntsc.rs/docs/command-line-interface/</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://ntsc.rs/docs/faq/</loc>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
         <url>
             <loc>https://ntsc.rs/docs/getting-started/</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
         <url>
             <loc>https://ntsc.rs/docs/macos-installation/</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://ntsc.rs/docs/ntscqt-migration/</loc>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
         <url>
             <loc>https://ntsc.rs/docs/openfx-plugin/</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
         <url>
             <loc>https://ntsc.rs/docs/standalone-application/</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
         <url>
             <loc>https://ntsc.rs/docs/standalone-installation/</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
         <url>
             <loc>https://ntsc.rs/docs/standalone-tips/</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://ntsc.rs/download/</loc>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://ntsc.rs/download.css</loc>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
         <url>
             <loc>https://ntsc.rs/</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
         <url>
             <loc>https://ntsc.rs/landing.css</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
         <url>
             <loc>https://ntsc.rs/style.css</loc>
-            <lastmod>2024-11-02T23:08:56.842Z</lastmod>
+            <lastmod>2025-01-13T00:17:07.134Z</lastmod>
         </url>
     
-</urlset>
+</urlset></body></html>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+<!DOCTYPE html><html lang="en"><head>
         <meta charset="UTF-8">
         <link rel="preload" href="/style.css" as="style">
         <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
@@ -9,8 +7,8 @@
         <link rel="stylesheet" href="/style.css">
         <link rel="icon" href="/assets/images/icon.svg">
         
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="/assets/main.js" defer async></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="/assets/main.js" defer="" async=""></script>
     </head>
     <body>
         <div class="navigation-bar">
@@ -22,35 +20,37 @@
             </a>
             <ul class="navigation-pages">
                 <li><a class="navigation-docs  active " href="/docs/getting-started/">Documentation</a></li>
-                <li><a class="external" href="https://github.com/valadaptive/ntsc-rs/releases"><span class="external-link">Downloads</span></a></li>
+                <li><a class="navigation-download " href="/download">Download</a></li>
                 <li><a class="external" href="https://github.com/valadaptive/ntsc-rs/discussions"><span class="external-link">Discussions</span></a></li>
                 <li><a class="external" href="https://github.com/valadaptive/ntsc-rs"><span class="external-link">GitHub</span></a></li>
             </ul>
         </div>
         
-<div class="nav-cols"><details class="navigation-details" open>
+<div class="nav-cols"><details class="navigation-details" open="">
         <summary class="navigation-summary">Navigation</summary>
         <div class="navigation-sidebar">
             <ul><li><a href="/docs/getting-started/">Getting Started</a></li>
+<li><a href="/docs/faq/">Frequently Asked Questions</a></li>
 <li><a href="/docs/standalone-application/">Standalone Application</a><ul><li><a href="/docs/standalone-installation/">Installation</a></li>
-<li><a href="/docs/standalone-tips/">Tips, Tricks, & Shortcuts</a></li></ul></li>
+<li><a href="/docs/standalone-tips/">Tips, Tricks, &amp; Shortcuts</a></li></ul></li>
 <li><a href="/docs/openfx-plugin/">OpenFX Plugin</a></li>
 <li><a href="/docs/after-effects-plugin/">After Effects / Premiere Plugin</a></li>
 <li><a href="/docs/command-line-interface/">Command-line interface</a></li>
 <li><a href="/docs/macos-installation/">Installing ntsc-rs on macOS</a></li>
-<li><a href="/docs/building-from-source/" class="navigation-active">Building ntsc-rs from source</a></li></ul>
+<li><a href="/docs/building-from-source/" class="navigation-active">Building ntsc-rs from source</a></li>
+<li><a href="/docs/ntscqt-migration/">Migrating from ntscQT</a></li></ul>
         </div>
     </details>
     <div id="content">
         <h1>Building ntsc-rs from source</h1>
         <h2>Install Rust</h2>
 <p>The first step is to install the latest version of Rust. Even if you're using Linux and Rust is available in your package manager, the version may be too outdated to build ntsc-rs.</p>
-<p>To obtain the latest stable version of Rust, <a href="https://rustup.rs/">install rustup</a> and then run:</p>
+<p>To obtain the latest stable version of Rust, <a href="https://rustup.rs/" class="external-link">install rustup</a> and then run:</p>
 <pre><code>rustup install stable
 </code></pre>
 <p>You may need to close and reopen your terminal after this.</p>
 <h2>Install rust-bindgen's requirements (OpenFX only)</h2>
-<p>If you want to build the OpenFX plugin, you'll need to <a href="https://rust-lang.github.io/rust-bindgen/requirements.html">install some dependencies for the rust-bindgen tool to work</a>.</p>
+<p>If you want to build the OpenFX plugin, you'll need to <a href="https://rust-lang.github.io/rust-bindgen/requirements.html" class="external-link">install some dependencies for the rust-bindgen tool to work</a>.</p>
 <p>If you're not building the OpenFX plugin, you can ignore this part.</p>
 <h2>Clone the repository</h2>
 <p>Make sure to include submodules when cloning the repository if you want the OpenFX plugin to build properly:</p>
@@ -66,12 +66,12 @@ cd ntsc-rs
 <summary>Windows</summary>
 <ol>
 <li>
-<p>Download and run the <a href="https://gstreamer.freedesktop.org/download/#windows">MSVC versions of the runtime and development GStreamer installers</a> (only necessary for the standalone application).</p>
+<p>Download and run the <a href="https://gstreamer.freedesktop.org/download/#windows" class="external-link">MSVC versions of the runtime and development GStreamer installers</a> (only necessary for the standalone application).</p>
 </li>
 <li>
-<p>If you installed GStreamer, follow their <a href="https://crates.io/crates/gstreamer#windows">instructions for setting the <code>PATH</code> environment variable</a>.
+<p>If you installed GStreamer, follow their <a href="https://crates.io/crates/gstreamer#windows" class="external-link">instructions for setting the <code>PATH</code> environment variable</a>.
 Currently, those instructions don't provide instructions for PowerShell--in such a case, you can set <code>PATH</code> via:</p>
-<pre><code>$Env:PATH += &quot;;C:\gstreamer\1.0\msvc_x86_64\bin&quot;
+<pre><code>$Env:PATH += ";C:\gstreamer\1.0\msvc_x86_64\bin"
 </code></pre>
 <p>(replace the path with the actual install location of GStreamer.)</p>
 </li>
@@ -95,7 +95,7 @@ cargo build -p ae-plugin --release
 <summary>macOS</summary>
 <ol>
 <li>
-<p>Install <a href="https://brew.sh/">brew</a> and use it to install GStreamer (only necessary for the standalone application):</p>
+<p>Install <a href="https://brew.sh/" class="external-link">brew</a> and use it to install GStreamer (only necessary for the standalone application):</p>
 <pre><code>brew install --cask gstreamer-runtime
 brew install --cask gstreamer-development
 </code></pre>
@@ -149,8 +149,9 @@ cargo xtask build-ofx-plugin --release
 </li>
 </ol>
 
-    </div>
+    </details></div>
 </div>
 
-    </body>
-</html>
+    
+
+</body></html>
