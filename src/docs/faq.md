@@ -1,6 +1,7 @@
 ---
 layout: docs.njk
 title: Frequently Asked Questions
+description: Answers to frequently asked questions about ntsc-rs
 eleventyNavigation:
   key: Frequently Asked Questions
   order: 1

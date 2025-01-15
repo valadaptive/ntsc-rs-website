@@ -1,6 +1,7 @@
 ---
 layout: docs.njk
 title: Installation
+description: How to install the standalone ntsc-rs application on various platforms
 eleventyNavigation:
   key: Installation
   parent: Standalone Application

@@ -1,6 +1,7 @@
 ---
 layout: docs.njk
 title: Building ntsc-rs from source
+description: How to build ntsc-rs from its source code
 eleventyNavigation:
   key: Building ntsc-rs from source
   order: 7

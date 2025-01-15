@@ -1,6 +1,7 @@
 ---
 layout: docs.njk
 title: Migrating from ntscQT
+description: How ntsc-rs differs from ntscQT and how to migrate to it
 eleventyNavigation:
   key: Migrating from ntscQT
   order: 8

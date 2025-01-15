@@ -1,6 +1,7 @@
 ---
 layout: docs.njk
 title: OpenFX Plugin
+description: How to install and use the ntsc-rs OpenFX plugin, compatible with major video editing software like DaVinci Resolve and Vegas
 eleventyNavigation:
   key: OpenFX Plugin
   order: 3

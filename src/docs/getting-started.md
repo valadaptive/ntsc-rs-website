@@ -1,6 +1,7 @@
 ---
 layout: docs.njk
 title: Getting Started
+description: Find the documentation for the distribution of ntsc-rs you have installed and learn how to use it
 eleventyNavigation:
   key: Getting Started
   order: 0

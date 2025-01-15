@@ -1,6 +1,7 @@
 ---
 layout: docs.njk
 title: Installing ntsc-rs on macOS
+description: How to install and use ntsc-rs in macOS
 eleventyNavigation:
   key: Installing ntsc-rs on macOS
   order: 6

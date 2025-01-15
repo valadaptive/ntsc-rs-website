@@ -1,6 +1,7 @@
 ---
 layout: docs.njk
 title: Tips, Tricks, & Shortcuts
+description: Useful tips and tricks for getting the most out of the standalone ntsc-rs application
 eleventyNavigation:
   key: Tips, Tricks, & Shortcuts
   parent: Standalone Application

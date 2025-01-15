@@ -1,6 +1,7 @@
 ---
 layout: docs.njk
 title: Command-line interface
+description: How to use the ntsc-rs command-line interface, useful for automating it
 eleventyNavigation:
   key: Command-line interface
   order: 5

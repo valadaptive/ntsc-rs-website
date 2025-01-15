@@ -1,6 +1,7 @@
 ---
 layout: docs.njk
 title: After Effects / Premiere Plugin
+description: How to install and use ntsc-rs in After Effects and Premiere Pro
 eleventyNavigation:
   key: After Effects / Premiere Plugin
   order: 4
