@@ -102,7 +102,7 @@ export default function (eleventyConfig) {
     });
 
     eleventyConfig.addTransform('externalify', async function (content) {
-        if (this.page.outputFileExtension !== 'html') {
+        if (this.page.outputFileExtension !== 'html' || !(this.page.outputPath.endsWith('.html'))) {
             return content;
         }
         const $ = cheerio.load(content);
