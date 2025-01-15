@@ -12,8 +12,6 @@ ntsc-rs is available as a standalone application, an OpenFX plugin, and an After
 
 After you download ntsc-rs from [the downloads page](/download), it should redirect you to the appropriate installation instructions. If not, here are the instructions for:
 
-<ul>
-    <li><a href="/docs/standalone-installation">the standalone application.</a></li>
-    <li><a href="/docs/openfx-plugin">the OpenFX plugin.</a></li>
-    <li><a href="/docs/after-effects-plugin">the After Effects / Premiere plugin.</a></li>
-</ul>
+- [the standalone application.](/docs/standalone-installation/)
+- [the OpenFX plugin.](/docs/openfx-plugin/)
+- [the After Effects / Premiere plugin.](/docs/after-effects-plugin/)
