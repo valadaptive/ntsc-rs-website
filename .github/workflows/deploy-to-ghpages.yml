@@ -14,6 +14,8 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: "0" # necessary for "git Last Modified" date to work
 
       - name: Setup Node
         uses: actions/setup-node@v4
