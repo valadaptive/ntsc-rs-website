@@ -101,6 +101,12 @@ export default function (eleventyConfig) {
         }
     });
 
+    eleventyConfig.addCollection('indexablePages', function (collectionsApi) {
+        return collectionsApi.getAll().filter(function (item) {
+            return item.page.outputFileExtension === 'html';
+        })
+    });
+
     eleventyConfig.addTransform('externalify', async function (content) {
         if (this.page.outputFileExtension !== 'html' || !(this.page.outputPath.endsWith('.html'))) {
             return content;
