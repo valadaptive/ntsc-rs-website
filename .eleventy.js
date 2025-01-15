@@ -29,6 +29,9 @@ const apiResponse = (async () => {
         }
     });
     const json = await response.json();
+    if (!response.ok) {
+        throw new Error(json.message);
+    }
     await fs.writeFile(CACHED_RESPONSE_FILE, JSON.stringify(json, null, '\t'), 'utf8');
     return json;
 })();
@@ -104,7 +107,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addCollection('indexablePages', function (collectionsApi) {
         return collectionsApi.getAll().filter(function (item) {
             return item.page.outputFileExtension === 'html';
-        })
+        });
     });
 
     eleventyConfig.addTransform('externalify', async function (content) {
