@@ -13,7 +13,7 @@ nav-slug: "docs"
             {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({activeKey: navKey, activeAnchorClass: 'navigation-active'}) | safe }}
         </div>
     </details>
-    <div id="content">
+    <div id="content" data-pagefind-body>
         <h1>{{ title }}</h1>
         {{ content | safe }}
     </div>

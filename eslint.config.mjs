@@ -1,34 +1,20 @@
-import stylistic from '@stylistic/eslint-plugin-js';
+import stylistic from '@stylistic/eslint-plugin';
 import globals from 'globals';
-import path from 'node:path';
-import {fileURLToPath} from 'node:url';
 import js from '@eslint/js';
-import {FlatCompat} from '@eslint/eslintrc';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
-});
+import * as tseslint from 'typescript-eslint';
 
 export default [{
     ignores: ['_site/**/*.js']
-}, ...compat.extends('eslint:recommended'), {
+}, js.configs.recommended, {
     plugins: {
-        '@stylistic/js': stylistic
+        '@stylistic': stylistic
     },
 
     languageOptions: {
-        globals: {
-            ...globals.browser
-        },
-
-        ecmaVersion: 11,
+        ecmaVersion: 2022,
         sourceType: 'module',
         parserOptions: {
-            ecmaVersion: 2023
+            ecmaVersion: 2022
         }
     },
 
@@ -37,47 +23,47 @@ export default [{
             checkLoops: false
         }],
 
-        '@stylistic/js/array-bracket-spacing': ['error', 'never'],
+        '@stylistic/array-bracket-spacing': ['error', 'never'],
 
         camelcase: ['error', {
             properties: 'never'
         }],
 
-        '@stylistic/js/comma-dangle': ['error', 'never'],
-        '@stylistic/js/comma-spacing': ['error'],
-        '@stylistic/js/comma-style': ['error'],
-        '@stylistic/js/eol-last': ['error', 'always'],
+        '@stylistic/comma-dangle': ['error', 'never'],
+        '@stylistic/comma-spacing': ['error'],
+        '@stylistic/comma-style': ['error'],
+        '@stylistic/eol-last': ['error', 'always'],
         eqeqeq: ['warn'],
-        '@stylistic/js/func-call-spacing': ['error', 'never'],
+        '@stylistic/func-call-spacing': ['error', 'never'],
 
-        '@stylistic/js/indent': ['error', 4, {
+        '@stylistic/indent': ['error', 4, {
             SwitchCase: 1
         }],
 
-        '@stylistic/js/key-spacing': ['error', {
+        '@stylistic/key-spacing': ['error', {
             beforeColon: false,
             afterColon: true,
             mode: 'strict'
         }],
 
-        '@stylistic/js/keyword-spacing': ['error', {
+        '@stylistic/keyword-spacing': ['error', {
             before: true,
             after: true
         }],
 
-        '@stylistic/js/max-len': [1, {
+        '@stylistic/max-len': [1, {
             code: 120,
             tabWidth: 4,
             ignoreUrls: true,
             ignoreTemplateLiterals: true
         }],
 
-        '@stylistic/js/new-parens': ['error'],
-        '@stylistic/js/newline-per-chained-call': ['error'],
+        '@stylistic/new-parens': ['error'],
+        '@stylistic/newline-per-chained-call': ['error'],
         'no-console': ['error'],
-        '@stylistic/js/no-mixed-operators': ['error'],
+        '@stylistic/no-mixed-operators': ['error'],
 
-        '@stylistic/js/no-multiple-empty-lines': ['error', {
+        '@stylistic/no-multiple-empty-lines': ['error', {
             max: 2,
             maxBOF: 0,
             maxEOF: 0
@@ -85,45 +71,56 @@ export default [{
 
         'no-throw-literal': ['error'],
 
-        '@stylistic/js/no-trailing-spaces': ['error', {
+        '@stylistic/no-trailing-spaces': ['error', {
             skipBlankLines: true
         }],
 
         'no-unneeded-ternary': ['error'],
-        '@stylistic/js/object-curly-spacing': ['error'],
+        '@stylistic/object-curly-spacing': ['error'],
 
-        '@stylistic/js/object-property-newline': ['error', {
+        '@stylistic/object-property-newline': ['error', {
             allowMultiplePropertiesPerLine: true
         }],
 
-        '@stylistic/js/operator-linebreak': ['error', 'after'],
+        '@stylistic/operator-linebreak': ['error', 'after'],
         'prefer-const': ['error'],
 
-        '@stylistic/js/quotes': ['error', 'single', {
+        '@stylistic/quotes': ['error', 'single', {
             allowTemplateLiterals: true,
             avoidEscape: true
         }],
 
-        '@stylistic/js/semi': ['error', 'always'],
-        '@stylistic/js/semi-spacing': ['error'],
-        '@stylistic/js/space-before-function-paren': ['error', 'never'],
-        '@stylistic/js/space-in-parens': ['error'],
-        '@stylistic/js/space-infix-ops': ['error'],
-        '@stylistic/js/space-unary-ops': ['error']
+        '@stylistic/semi': ['error', 'always'],
+        '@stylistic/semi-spacing': ['error'],
+        '@stylistic/space-before-function-paren': ['error', 'never'],
+        '@stylistic/space-in-parens': ['error'],
+        '@stylistic/space-infix-ops': ['error'],
+        '@stylistic/space-unary-ops': ['error']
     }
 }, {
-    files: ['**/*.cjs', '**/*.js'],
+    files: ['.eleventy.js', 'eslint.config.mjs'],
 
     languageOptions: {
         globals: {
             ...globals.node
-        },
-
-        ecmaVersion: 5,
-        sourceType: 'module',
-
-        parserOptions: {
-            project: null
         }
     }
-}];
+}, {
+    files: ['src/**/*'],
+
+    languageOptions: {
+        globals: {
+            ...globals.browser
+        }
+    }
+}, ...tseslint.config({
+    files: ['src/js/**/*.{ts,tsx}'],
+    extends: [tseslint.configs.recommendedTypeChecked],
+    languageOptions: {
+        parserOptions: {
+            projectService: true,
+            tsconfigRootDir: import.meta.dirname
+        }
+    },
+    ignores: ['**/*.d.ts']
+})];
