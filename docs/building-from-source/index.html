@@ -3,7 +3,7 @@
         <link rel="preload" href="/style.css" as="style">
         <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         
-        <title>Building ntsc-rs from source · ntsc-rs </title>
+        <title>Building ntsc-rs from source · ntsc-rs</title>
         <link rel="stylesheet" href="/style.css">
         <link rel="icon" href="/assets/images/icon.svg">
         
@@ -11,9 +11,10 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="/assets/main.js" defer="" async=""></script>
+        <script src="/js/search.js" defer="" async="" type="module"></script>
     </head>
     <body>
-        <div class="navigation-bar">
+        <div id="navigation-bar">
             <a href="/" class="navbar-logo">
                 <picture>
                     <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
@@ -26,7 +27,15 @@
                 <li><a class="external" href="https://github.com/valadaptive/ntsc-rs/discussions"><span class="external-link">Discussions</span></a></li>
                 <li><a class="external" href="https://github.com/valadaptive/ntsc-rs"><span class="external-link">GitHub</span></a></li>
             </ul>
+            <div id="search-area">
+                <div id="search">
+                    <input id="search-input" type="text" placeholder="Search" disabled="">
+                    <button class="icon-button close" id="search-clear" title="Clear search"></button>
+                </div>
+                <button class="icon-button search" id="search-open" title="Search"></button>
+            </div>
         </div>
+        <div id="search-results-container"></div>
         
 <div class="nav-cols"><details class="navigation-details" open="">
         <summary class="navigation-summary">Navigation</summary>
@@ -43,7 +52,7 @@
 <li><a href="/docs/ntscqt-migration/">Migrating from ntscQT</a></li></ul>
         </div>
     </details>
-    <div id="content">
+    <div id="content" data-pagefind-body="">
         <h1>Building ntsc-rs from source</h1>
         <h2>Install Rust</h2>
 <p>The first step is to install the latest version of Rust. Even if you're using Linux and Rust is available in your package manager, the version may be too outdated to build ntsc-rs.</p>

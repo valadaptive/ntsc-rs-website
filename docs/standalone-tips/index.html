@@ -3,7 +3,7 @@
         <link rel="preload" href="/style.css" as="style">
         <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         
-        <title>Tips, Tricks, &amp; Shortcuts · ntsc-rs </title>
+        <title>Tips, Tricks, &amp; Shortcuts · ntsc-rs</title>
         <link rel="stylesheet" href="/style.css">
         <link rel="icon" href="/assets/images/icon.svg">
         
@@ -11,9 +11,10 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="/assets/main.js" defer="" async=""></script>
+        <script src="/js/search.js" defer="" async="" type="module"></script>
     </head>
     <body>
-        <div class="navigation-bar">
+        <div id="navigation-bar">
             <a href="/" class="navbar-logo">
                 <picture>
                     <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
@@ -26,7 +27,15 @@
                 <li><a class="external" href="https://github.com/valadaptive/ntsc-rs/discussions"><span class="external-link">Discussions</span></a></li>
                 <li><a class="external" href="https://github.com/valadaptive/ntsc-rs"><span class="external-link">GitHub</span></a></li>
             </ul>
+            <div id="search-area">
+                <div id="search">
+                    <input id="search-input" type="text" placeholder="Search" disabled="">
+                    <button class="icon-button close" id="search-clear" title="Clear search"></button>
+                </div>
+                <button class="icon-button search" id="search-open" title="Search"></button>
+            </div>
         </div>
+        <div id="search-results-container"></div>
         
 <div class="nav-cols"><details class="navigation-details" open="">
         <summary class="navigation-summary">Navigation</summary>
@@ -43,16 +52,28 @@
 <li><a href="/docs/ntscqt-migration/">Migrating from ntscQT</a></li></ul>
         </div>
     </details>
-    <div id="content">
+    <div id="content" data-pagefind-body="">
         <h1>Tips, Tricks, &amp; Shortcuts</h1>
         <p>If you don't feel like reading the <a href="../standalone-application">full overview of the standalone application</a>, here's a condensed list of the extra features that it supports:</p>
 <ul>
-<li>You can drag the numeric value inputs. Dragging up or to the right increases them, and dragging down or to the left decreases them.</li>
-<li>The numeric value inputs in the Effect Settings pane will evaluate mathematical expressions for you.</li>
-<li>The volume and zoom settings support both percentages and decimal values.</li>
-<li>You can use Ctrl+scroll to zoom in and out of the timeline, and scroll to move around in it once zoomed in.</li>
-<li>Pressing space will play/pause the preview.</li>
-<li>You can drag and drop videos and presets into the application window. If you drop a preset onto the effect settings area, it will load the preset. If you drop presets onto the preset manager, they will be copied into the presets folder.</li>
+<li>
+<p>You can drag the numeric value inputs / text boxes. Dragging up or to the right increases them, and dragging down or to the left decreases them.</p>
+</li>
+<li>
+<p>The numeric value inputs in the Effect Settings pane will evaluate mathematical expressions for you.</p>
+</li>
+<li>
+<p>The volume and zoom settings support both percentages and decimal values.</p>
+</li>
+<li>
+<p>You can use Ctrl+scroll to zoom in and out of the timeline, and scroll to move around in it once zoomed in.</p>
+</li>
+<li>
+<p>Pressing space will play/pause the preview.</p>
+</li>
+<li>
+<p>You can drag and drop videos and presets into the application window. If you drop a preset onto the effect settings area, it will load the preset. If you drop presets onto the preset manager, they will be copied into the presets folder.</p>
+</li>
 </ul>
 
     </div>

@@ -11,9 +11,10 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="/assets/main.js" defer="" async=""></script>
+        <script src="/js/search.js" defer="" async="" type="module"></script>
     </head>
     <body>
-        <div class="navigation-bar">
+        <div id="navigation-bar">
             <a href="/" class="navbar-logo">
                 <picture>
                     <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
@@ -26,7 +27,15 @@
                 <li><a class="external" href="https://github.com/valadaptive/ntsc-rs/discussions"><span class="external-link">Discussions</span></a></li>
                 <li><a class="external" href="https://github.com/valadaptive/ntsc-rs"><span class="external-link">GitHub</span></a></li>
             </ul>
+            <div id="search-area">
+                <div id="search">
+                    <input id="search-input" type="text" placeholder="Search" disabled="">
+                    <button class="icon-button close" id="search-clear" title="Clear search"></button>
+                </div>
+                <button class="icon-button search" id="search-open" title="Search"></button>
+            </div>
         </div>
+        <div id="search-results-container"></div>
         
 <section id="hero">
     <div class="hero-text">
