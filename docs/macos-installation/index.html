@@ -1,7 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
         <meta charset="UTF-8">
         <link rel="preload" href="/style.css" as="style">
-        <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         
         <title>Installing ntsc-rs on macOS · ntsc-rs</title>
         <link rel="stylesheet" href="/style.css">
@@ -18,7 +17,7 @@
             <a href="/" class="navbar-logo">
                 <picture>
                     <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
-                    <img src="/assets/images/ruzwZCdVD3-1280.svg" alt="ntsc-rs logo" class="" loading="lazy" decoding="async" style="" width="1280" height="256">
+                    <img eleventy:ignore="" src="/assets/images/logo-lightmode.svg" alt="ntsc-rs logo">
                 </picture>
             </a>
             <ul class="navigation-pages">
@@ -56,9 +55,9 @@
         <h1>Installing ntsc-rs on macOS</h1>
         <p>Currently, ntsc-rs is not signed with an Apple developer certificate. This means that Gatekeeper will not allow the <code>.pkg</code> installer files to run.</p>
 <p>In order to install ntsc-rs, be it the standalone application or plugins, first open the <code>.pkg</code> installer file for the distribution of ntsc-rs you want to install (application, OpenFX plugin, or After Effects plugin). It will display this dialog:</p>
-<img src="/assets/images/6iKdkoURDc-520.webp" alt="An error message stating: &quot;ntsc-rs-macos-standalone.pkg&quot; cannot be opened because it is from an unidentified developer. macOS cannot verify that this app is free from malware." class="thumbnail" loading="lazy" decoding="async" style="width: 260px" width="520" height="616">
+<p>&lt;img src="/assets/images/gatekeeper1.png" alt="An error message stating: "ntsc-rs-macos-standalone.pkg" cannot be opened because it is from an unidentified developer. macOS cannot verify that this app is free from malware." class="thumbnail" style="width: 260px" %}</p>
 <p>After dismissing this dialog, open System Settings and go to the Privacy &amp; Security tab. Scrolling most of the way down, you'll reach the Security section, where you can allow the installer to "Open Anyway":</p>
-<img src="/assets/images/1mPhC0IOQJ-1430.webp" alt="The System Settings window, with the Privacy &amp; Security tab selected, and a notice about the installer displayed with an &quot;Open Anyway&quot; button" class="thumbnail" loading="lazy" decoding="async" style="width: 715px" width="1430" height="940">
+<p>&lt;img src="/assets/images/gatekeeper2.png" alt="The System Settings window, with the Privacy &amp; Security tab selected, and a notice about the installer displayed with an "Open Anyway" button" class="thumbnail" style="width: 715px" %}</p>
 <p>Once you allow the installer itself to run, the actual application or plugin installed should work with no further Gatekeeper actions necessary. If it displays a similar error to the one above, you can find the same option in System Settings.</p>
 
     </div>

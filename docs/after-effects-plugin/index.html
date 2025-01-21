@@ -1,7 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
         <meta charset="UTF-8">
         <link rel="preload" href="/style.css" as="style">
-        <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         
         <title>After Effects / Premiere Plugin · ntsc-rs</title>
         <link rel="stylesheet" href="/style.css">
@@ -18,7 +17,7 @@
             <a href="/" class="navbar-logo">
                 <picture>
                     <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
-                    <img src="/assets/images/ruzwZCdVD3-1280.svg" alt="ntsc-rs logo" class="" loading="lazy" decoding="async" style="" width="1280" height="256">
+                    <img eleventy:ignore="" src="/assets/images/logo-lightmode.svg" alt="ntsc-rs logo">
                 </picture>
             </a>
             <ul class="navigation-pages">
@@ -62,7 +61,7 @@
 <p>Follow <a href="../macos-installation">these instructions</a> for running the installer. After installation, the plugin can be found in <code>/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/</code>.</p>
 <h2>Usage</h2>
 <p>Once installed, the plugin should appear under the "Stylize" category.</p>
-<img src="/assets/images/JFlcx5SfoB-208.webp" alt="The ntsc-rs effect appearing under the Stylize category in the &quot;Effects and Presets&quot; panel" class="" loading="lazy" decoding="async" style="" width="208" height="577">
+<img src="/assets/images/JFlcx5SfoB-208.webp" alt="The ntsc-rs effect appearing under the Stylize category in the &quot;Effects and Presets&quot; panel" loading="lazy" decoding="async" width="208" height="577">
 <h3>Effect Order and Transforms</h3>
 <p>NTSC video itself is quite low-resolution--only 480 lines of vertical resolution. As such, you should apply it to 480p
 footage for best results (both for performance reasons and correctness reasons).</p>

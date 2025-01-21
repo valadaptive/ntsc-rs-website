@@ -1,7 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
         <meta charset="UTF-8">
         <link rel="preload" href="/style.css" as="style">
-        <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         
         <title>OpenFX Plugin · ntsc-rs</title>
         <link rel="stylesheet" href="/style.css">
@@ -18,7 +17,7 @@
             <a href="/" class="navbar-logo">
                 <picture>
                     <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
-                    <img src="/assets/images/ruzwZCdVD3-1280.svg" alt="ntsc-rs logo" class="" loading="lazy" decoding="async" style="" width="1280" height="256">
+                    <img eleventy:ignore="" src="/assets/images/logo-lightmode.svg" alt="ntsc-rs logo">
                 </picture>
             </a>
             <ul class="navigation-pages">
@@ -66,7 +65,7 @@
 <p>You'll need to copy the folder itself, <em>not</em> its contents!</p>
 <h2>Usage</h2>
 <p>Once installed, the plugin should appear under the "Filter" category. In software that groups plugins by vendor instead of by category, such as DaVinci Resolve, it will be under "NtscRs".</p>
-<img src="/assets/images/L5KVnxnEcy-376.webp" alt="The ntsc-rs effect appearing under the Filter category in an effect menu" class="" loading="lazy" decoding="async" style="" width="376" height="164">
+<img src="/assets/images/L5KVnxnEcy-376.webp" alt="The ntsc-rs effect appearing under the Filter category in an effect menu" loading="lazy" decoding="async" width="376" height="164">
 <h3>Effect Order and Transforms</h3>
 <p>NTSC video itself is quite low-resolution--only 480 lines of vertical resolution. As such, you should apply it to 480p
 footage for best results (both for performance reasons and correctness reasons).</p>

@@ -1,5 +1,61 @@
 @charset "UTF-8";
-@import "/assets/fonts/stylesheet.css";
+@font-face {
+  font-family: "Creato Display";
+  src: url("/assets/fonts/subset-CreatoDisplay-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+/* inter-regular - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/inter-v18-latin-regular.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-italic - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/assets/fonts/inter-v18-latin-italic.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-700 - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/assets/fonts/inter-v18-latin-700.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-700italic - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 700;
+  src: url("/assets/fonts/inter-v18-latin-700italic.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* jetbrains-mono-regular - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/jetbrains-mono-v18-latin-regular.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 @media (prefers-color-scheme: light) {
   :root {
     --text-color: #161518;
@@ -34,6 +90,10 @@
     --highlight: rgba(255, 176, 5, 0.325);
   }
 }
+:root {
+  --header-font: "Creato Display", "Inter", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
 .light-mode {
   --text-color: #161518;
   --link-color: #30597a;
@@ -94,7 +154,7 @@ input[type=text]:focus, input[type=number]:focus {
 }
 
 h1, h2, h3, h4 {
-  font-family: "Creato Display", "Inter", sans-serif;
+  font-family: var(--header-font);
   line-height: 1.25;
 }
 
@@ -301,7 +361,7 @@ code {
 }
 
 .result-title, .sub-result-title {
-  font-family: "Creato Display", "Inter", sans-serif;
+  font-family: var(--header-font);
   font-weight: bold;
 }
 
@@ -314,7 +374,7 @@ code {
 }
 
 .search-no-results {
-  font-family: "Creato Display", "Inter", sans-serif;
+  font-family: var(--header-font);
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
@@ -414,7 +474,6 @@ button.icon-button.search::before {
 .nav-cols {
   display: flex;
   justify-content: center;
-  gap: 1rem;
 }
 
 #content {
@@ -458,7 +517,6 @@ img.thumbnail {
 @media (max-width: 8in) {
   .nav-cols {
     flex-direction: column;
-    gap: 0;
   }
   .navigation-details {
     padding: 1rem 2rem 0 2rem;
@@ -471,6 +529,7 @@ img.thumbnail {
   }
   .navigation-sidebar > ul {
     position: initial;
+    margin-bottom: 0;
   }
   .navigation-summary {
     display: block;

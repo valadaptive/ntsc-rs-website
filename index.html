@@ -1,7 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
         <meta charset="UTF-8">
         <link rel="preload" href="/style.css" as="style">
-        <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         <link rel="preload" href="/assets/images/herothumb.webp" as="image"> <link rel="preload" href="/landing.css" as="style"> <link rel="stylesheet" href="/landing.css">
         <title>ntsc-rs - an accurate VHS video effect</title>
         <link rel="stylesheet" href="/style.css">
@@ -18,7 +17,7 @@
             <a href="/" class="navbar-logo">
                 <picture>
                     <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
-                    <img src="/assets/images/ruzwZCdVD3-1280.svg" alt="ntsc-rs logo" class="" loading="lazy" decoding="async" style="" width="1280" height="256">
+                    <img eleventy:ignore="" src="/assets/images/logo-lightmode.svg" alt="ntsc-rs logo">
                 </picture>
             </a>
             <ul class="navigation-pages">
@@ -46,28 +45,28 @@
 </section>
 <section id="landing-content">
     <div class="hook">
-        <img src="/assets/images/dMI5kPlcVt-1204.webp" alt="Screenshot of the ntsc-rs application" class="hook-image thumbnail" loading="lazy" decoding="async" style="" width="1204" height="900">
+        <img sizes="(resolution: 1x) 400px, 1200px" src="/assets/images/dMI5kPlcVt-400.webp" alt="Screenshot of the ntsc-rs application" class="hook-image thumbnail" loading="lazy" decoding="async" width="1204" height="900" srcset="/assets/images/dMI5kPlcVt-400.webp 400w, /assets/images/dMI5kPlcVt-1204.webp 1204w">
         <div class="blurb">
             <header>Your analog dreams, come true</header>
             <p>ntsc-rs is a free, open-source video effect which accurately emulates analog TV and VHS artifacts.</p>
         </div>
     </div>
     <div class="hook reverse">
-        <img src="/assets/images/rclvL530NQ-720.webp" alt="Side-by-side comparison between Red Giant Universe VHS and ntsc-rs" class="hook-image thumbnail" loading="lazy" decoding="async" style="" width="720" height="480">
+        <img sizes="(resolution: 1x) 400px, 1200px" src="/assets/images/rclvL530NQ-400.webp" alt="Side-by-side comparison between Red Giant Universe VHS and ntsc-rs" class="hook-image thumbnail" loading="lazy" decoding="async" width="720" height="480" srcset="/assets/images/rclvL530NQ-400.webp 400w, /assets/images/rclvL530NQ-720.webp 720w">
         <div class="blurb">
             <header>Amazingly accurate</header>
             <p>Other popular effects eyeball the look of VHS tapes using simple color lookup tables and overlays. ntsc-rs uses algorithms that model how NTSC transmission and VHS encoding actually work, based on algorithms developed in <a href="https://github.com/joncampbell123/composite-video-simulator/" class="external-link">composite-video-simulator</a>, <a href="https://github.com/zhuker/ntsc" class="external-link">zhuker/ntsc</a>, and <a href="https://github.com/JargeZ/ntscqt/" class="external-link">ntscQT</a>.</p>
         </div>
     </div>
     <div class="hook">
-        <img src="/assets/images/sBL4MSmwhO-813.webp" alt="An ntsc-rs render which has completed in 15 seconds overlaid atop lines of code" class="hook-image" loading="lazy" decoding="async" style="" width="813" height="610">
+        <img sizes="(resolution: 1x) 400px, 1200px" src="/assets/images/sBL4MSmwhO-400.webp" alt="An ntsc-rs render which has completed in 15 seconds overlaid atop lines of code" class="hook-image" loading="lazy" decoding="async" width="813" height="610" srcset="/assets/images/sBL4MSmwhO-400.webp 400w, /assets/images/sBL4MSmwhO-813.webp 813w">
         <div class="blurb">
             <header>Blazingly fast</header>
             <p>ntsc-rs is written in Rust, and is multithreaded and SIMD-accelerated. Unlike similar effects such as ntscQT, it can run in real time at much higher resolutions than actual NTSC footage.</p>
         </div>
     </div>
     <div class="hook reverse">
-        <img src="/assets/images/j3LH5hwZRj-1445.webp" alt="ntsc-rs running as a plugin in nonlinear editing software" class="hook-image thumbnail" loading="lazy" decoding="async" style="" width="1445" height="1084">
+        <img sizes="(resolution: 1x) 400px, 1200px" src="/assets/images/j3LH5hwZRj-400.webp" alt="ntsc-rs running as a plugin in nonlinear editing software" class="hook-image thumbnail" loading="lazy" decoding="async" width="1445" height="1084" srcset="/assets/images/j3LH5hwZRj-400.webp 400w, /assets/images/j3LH5hwZRj-1445.webp 1445w">
         <div class="blurb">
             <header>Fits into your video editing workflow</header>
             <p>ntsc-rs is available not just as a standalone application, but also as a plugin for After Effects, Premiere, and all OpenFX-compatible software. This includes DaVinci Resolve, Hitfilm, and Vegas.</p>
