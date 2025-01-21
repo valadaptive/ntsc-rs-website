@@ -23,7 +23,7 @@ Follow [these instructions](../macos-installation) for running the installer. Af
 
 Once installed, the plugin should appear under the "Stylize" category.
 
-{% image "src/assets/images/category-stylize.png", "The ntsc-rs effect appearing under the Stylize category in the \"Effects and Presets\" panel" %}
+<img src="/assets/images/category-stylize.png" alt="The ntsc-rs effect appearing under the Stylize category in the &quot;Effects and Presets&quot; panel">
 
 ### Effect Order and Transforms
 

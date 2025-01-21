@@ -31,9 +31,23 @@ function main() {
             continue;
         }
 
+        let biggestSrc = thumbnailable.src;
+        if (thumbnailable.srcset) {
+            let biggestSize = 0;
+            const imageCandidateStringRegex = /\s*?([^,\s]+?)\s+?(\d+?)w\s*?(?:,|$)/y;
+            let match;
+            while ((match = imageCandidateStringRegex.exec(thumbnailable.srcset)) !== null) {
+                const size = Number(match[2]);
+                if (size > biggestSize) {
+                    biggestSize = size;
+                    biggestSrc = match[1];
+                }
+            }
+        }
+
         const showThumbnail = () => {
             const image = document.createElement('img');
-            image.src = thumbnailable.src;
+            image.src = biggestSrc;
             image.alt = thumbnailable.alt;
             // If the image is currently focused, set thumbnailedImage so focus will be restored to it when the overlay
             // is closed

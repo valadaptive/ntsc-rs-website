@@ -25,7 +25,7 @@ You'll need to copy the folder itself, *not* its contents!
 
 Once installed, the plugin should appear under the "Filter" category. In software that groups plugins by vendor instead of by category, such as DaVinci Resolve, it will be under "NtscRs".
 
-{% image "src/assets/images/category-filter.png", "The ntsc-rs effect appearing under the Filter category in an effect menu" %}
+<img src="/assets/images/category-filter.png" alt="The ntsc-rs effect appearing under the Filter category in an effect menu">
 
 ### Effect Order and Transforms
 

@@ -7,7 +7,6 @@ layout: 'set-date.11ty.js'
     <head>
         <meta charset="UTF-8">
         <link rel="preload" href="/style.css" as="style">
-        <link rel="preload" href="/assets/fonts/stylesheet.css" as="style">
         {{ header_extras }}
         <title>{{ title }}{% if not isMainPage %} · ntsc-rs{% endif %}</title>
         <link rel="stylesheet" href="/style.css">
@@ -24,7 +23,7 @@ layout: 'set-date.11ty.js'
             <a href="/" class="navbar-logo">
                 <picture>
                     <source srcset="/assets/images/logo-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
-                    {% image "src/assets/images/logo-lightmode.svg" "ntsc-rs logo" %}
+                    <img eleventy:ignore src="/assets/images/logo-lightmode.svg" alt="ntsc-rs logo">
                 </picture>
             </a>
             <ul class="navigation-pages">

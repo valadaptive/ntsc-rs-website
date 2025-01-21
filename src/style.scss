@@ -1,6 +1,6 @@
 @use 'sass:color';
 @use "sass:map";
-@import "/assets/fonts/stylesheet.css";
+@use "./assets/fonts/stylesheet.css";
 
 $beige: #f8f1e6;
 $beige-darker: #ebe1d0;
@@ -63,6 +63,10 @@ $link-color-dark-mode: #8de1e7;
     }
 }
 
+:root {
+    --header-font: 'Creato Display', 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
 .light-mode {
     @include light-mode();
 }
@@ -100,7 +104,7 @@ input[type=text], input[type=number] {
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Creato Display', 'Inter', sans-serif;
+    font-family: var(--header-font);
     line-height: 1.25;
 }
 
@@ -330,7 +334,7 @@ code {
 }
 
 .result-title, .sub-result-title {
-    font-family: 'Creato Display', 'Inter', sans-serif;
+    font-family: var(--header-font);
     font-weight: bold;
 }
 
@@ -343,7 +347,7 @@ code {
 }
 
 .search-no-results {
-    font-family: 'Creato Display', 'Inter', sans-serif;
+    font-family: var(--header-font);
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
@@ -459,7 +463,6 @@ button.icon-button {
 .nav-cols {
     display: flex;
     justify-content: center;
-    gap: 1rem;
 }
 
 #content {
@@ -506,7 +509,6 @@ img.thumbnail {
 @media (max-width: 8in) {
     .nav-cols {
         flex-direction: column;
-        gap: 0;
     }
 
     .navigation-details {
@@ -522,6 +524,7 @@ img.thumbnail {
 
         & > ul {
             position: initial;
+            margin-bottom: 0;
         }
     }
 

@@ -219,7 +219,7 @@ function main() {
 
     render(
         <SearchResults results={resultsSignal} resultsPerPage={5} />,
-        document.getElementById('search-results-container')!
+        searchResultsContainer
     );
 }
 

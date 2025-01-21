@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio';
 import * as esbuild from 'esbuild';
 import * as pagefind from 'pagefind';
 
-import Image from '@11ty/eleventy-img';
+import {eleventyImageTransformPlugin} from '@11ty/eleventy-img';
 import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
 
 // Cache latest release from GitHub to avoid excess API requests
@@ -41,24 +41,19 @@ export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets');
     eleventyConfig.addPassthroughCopy('src/robots.txt');
 
-    eleventyConfig.addShortcode('image', async function(src, alt, className = '', style = '') {
-        const metadata = await Image(src, {
-            widths: ['auto'],
-            formats: ['svg', 'webp'],
-            svgShortCircuit: true,
-            urlPath: '/assets/images/',
-            outputDir: '_site/assets/images/'
-        });
-
-        const imageAttributes = {
-            alt,
-            class: className,
-            loading: 'lazy',
-            decoding: 'async',
-            style
-        };
-
-        return Image.generateHTML(metadata, imageAttributes);
+    eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+        widths: ['auto'],
+        formats: ['svg', 'webp'],
+        svgShortCircuit: true,
+        urlPath: '/assets/images/',
+        outputDir: '_site/assets/images/',
+        htmlOptions: {
+            imgAttributes: {
+                loading: 'lazy',
+                decoding: 'async'
+            }
+        },
+        transformOnRequest: false
     });
 
     eleventyConfig.addGlobalData('latestRelease', async function() {

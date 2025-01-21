@@ -4,6 +4,10 @@
     aspect-ratio:  64 / 27;
     background-size: cover;
     position: relative;
+
+    @supports (background-image: url('/assets/images/hero.avif')) {
+        background-image: url('/assets/images/hero.avif'), url('/assets/images/herothumb.webp');
+    }
 }
 
 .hero-text {
@@ -14,7 +18,8 @@
 }
 
 .hero-blurb {
-    font-family: 'Creato Display', sans-serif;
+    font-family: var(--header-font);
+    font-weight: bold;
     font-size: 5vw;
     margin-bottom: 1rem;
     line-height: 1;
@@ -79,6 +84,7 @@
 .hook-image {
     max-width: min(25rem, 50vw);
     height: auto;
+    flex: 0 0 auto;
 
     box-shadow: 0px 8px 24px 0px #000000;
 }
