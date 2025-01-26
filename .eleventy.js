@@ -39,7 +39,6 @@ const apiResponse = (async() => {
 
 export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets');
-    eleventyConfig.addPassthroughCopy('src/robots.txt');
 
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
         widths: ['auto'],

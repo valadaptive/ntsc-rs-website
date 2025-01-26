@@ -1,4 +1,0 @@
-Sitemap: https://ntsc.rs/sitemap.xml
-
-User-agent: *
-Allow: /
