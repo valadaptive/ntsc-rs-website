@@ -15,6 +15,11 @@ No. I don't have any experience with audio processing, and others have already d
 
 Unfortunately, none of those platforms are supported at the moment. It's unlikely that apps for iOS or Android will ever be released, but in the long term, it's possible that I'll make an ntsc-rs webapp.
 
+Mobile platforms are a chore to develop for:
+
+- On the Android side, Google is notorious for deprecating their libraries every couple of years, forcing you onto the treadmill of rewriting your software over and over.
+- On the iOS side, Apple makes you fork over $99/yr for the privilege of being allowed on the App Store. I don't have any iOS hardware to test on, either.
+
 ## Is ntsc-rs like ntscQT?
 
 Yes. I developed ntsc-rs as a "faster ntscQT", and added new features from there. ntscQT has since been officially discontinued, and ntsc-rs is one of its recommended replacements. To learn more, see [the migration guide](/docs/ntscqt-migration).
