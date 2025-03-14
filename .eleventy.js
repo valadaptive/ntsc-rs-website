@@ -4,6 +4,7 @@ import * as sass from 'sass';
 import * as cheerio from 'cheerio';
 import * as esbuild from 'esbuild';
 import * as pagefind from 'pagefind';
+import markdownItAttrs from 'markdown-it-attrs';
 
 import {eleventyImageTransformPlugin} from '@11ty/eleventy-img';
 import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
@@ -54,6 +55,8 @@ export default function(eleventyConfig) {
         },
         transformOnRequest: false
     });
+
+    eleventyConfig.amendLibrary('md', mdlib => mdlib.use(markdownItAttrs));
 
     eleventyConfig.addGlobalData('latestRelease', async function() {
         const release = await apiResponse;

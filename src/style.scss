@@ -106,6 +106,12 @@ input[type=text], input[type=number] {
 h1, h2, h3, h4 {
     font-family: var(--header-font);
     line-height: 1.25;
+
+    &:target {
+        background-color: var(--highlight);
+        outline: 0.25rem solid var(--highlight);
+        border-radius: 0.25rem;
+    }
 }
 
 a {
