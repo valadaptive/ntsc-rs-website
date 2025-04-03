@@ -39,12 +39,13 @@
 }
 
 .hero-header {
+  font-family: var(--header-font);
+  font-variation-settings: "opsz" 32;
+  font-weight: var(--header-weight);
   font-size: 3rem;
   line-height: 1;
   text-align: center;
   margin-bottom: 2rem;
-  font-family: "Creato Display", "Inter", sans-serif;
-  font-weight: bold;
 }
 
 #os-menu {

@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
         <meta charset="UTF-8">
         <link rel="preload" href="/style.css" as="style">
+        <link rel="preload" href="/assets/images/icons.svg" as="image" crossorigin="anonymous">
         
         <title>Installation · ntsc-rs</title>
         <link rel="stylesheet" href="/style.css">
@@ -64,7 +65,15 @@
 <h2 id="installation-linux">Linux</h2>
 <p>If you're using Linux, the GUI in particular requires GStreamer and some of its plugins to be installed:</p>
 <details>
-<summary>Ubuntu, Debian, and Linux Mint</summary>
+<summary>Ubuntu and Linux Mint</summary>
+<pre><code class="language-bash">$ sudo apt-get install libgstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-alsa
+</code></pre>
+</details>
+<details>
+<summary>Debian</summary>
+<p>The command for installing GStreamer is the same as on Ubuntu, but note that some versions of GStreamer from Debian's repositories may not work.</p>
+<p>Notably, <a href="https://github.com/valadaptive/ntsc-rs/issues/224" class="external-link">the version of GStreamer in debian bullseye/"oldstable" errors out when using the FFV1 codec</a>, and <a href="https://github.com/valadaptive/ntsc-rs/issues/307" class="external-link">the version of GStreamer from the deb-multimedia.org repository does not contain the x264 codec</a>.</p>
+<p>To ensure ntsc-rs functions properly, use Debian bookworm/"stable" or newer, and make sure you're not using a version of GStreamer from the deb-multimedia.org repository.</p>
 <pre><code class="language-bash">$ sudo apt-get install libgstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-alsa
 </code></pre>
 </details>
