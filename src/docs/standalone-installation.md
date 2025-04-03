@@ -27,7 +27,21 @@ Follow [these instructions](../macos-installation) for running the installer. Af
 If you're using Linux, the GUI in particular requires GStreamer and some of its plugins to be installed:
 
 <details>
-<summary>Ubuntu, Debian, and Linux Mint</summary>
+<summary>Ubuntu and Linux Mint</summary>
+
+```bash
+$ sudo apt-get install libgstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-alsa
+```
+</details>
+
+<details>
+<summary>Debian</summary>
+
+The command for installing GStreamer is the same as on Ubuntu, but note that some versions of GStreamer from Debian's repositories may not work.
+
+Notably, [the version of GStreamer in debian bullseye/"oldstable" errors out when using the FFV1 codec](https://github.com/valadaptive/ntsc-rs/issues/224), and [the version of GStreamer from the deb-multimedia.org repository does not contain the x264 codec](https://github.com/valadaptive/ntsc-rs/issues/307).
+
+To ensure ntsc-rs functions properly, use Debian bookworm/"stable" or newer, and make sure you're not using a version of GStreamer from the deb-multimedia.org repository.
 
 ```bash
 $ sudo apt-get install libgstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-alsa

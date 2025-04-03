@@ -550,14 +550,21 @@ img.thumbnail {
     }
 
     .navigation-summary {
-        display: block;
+        display: flex;
         font-weight: bold;
         cursor: pointer;
+        align-items: center;
 
         &::before {
-            content: '▶';
+            content: '';
             margin-right: 0.5rem;
             display: inline-block;
+            width: 1em;
+            height: 1em;
+            background-color: currentColor;
+            mask-image: url("/assets/images/icons.svg");
+            mask-size: auto 100%;
+            mask-position: util.sprite-pos(2);
             transition: transform 0.2s;
         }
     }
