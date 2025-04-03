@@ -1,3 +1,5 @@
+@use "./util.scss";
+
 #hero {
     background-image: url('/assets/images/hero.webp'), url('/assets/images/herothumb.webp');
     color: #f8f5f0;
@@ -18,8 +20,8 @@
 }
 
 .hero-blurb {
-    font-family: var(--header-font);
-    font-weight: bold;
+    @include util.displayFont();
+    font-weight: 675;
     font-size: 5vw;
     margin-bottom: 1rem;
     line-height: 1;
@@ -33,10 +35,21 @@
     display: flex;
     width: 2rem;
     height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='square' stroke-width='4' d='m8 13 8 8 8-8'/%3E%3C/svg%3E");
-    background-size: contain;
     background-color: rgba(0, 0, 0, 0.5);
+
+    &::before {
+        content: "";
+        width: 75%;
+        height: 75%;
+        background-color: white;
+        mask-image: url("/assets/images/icons.svg");
+        mask-size: auto 100%;
+        mask-position: util.sprite_pos(4);
+    }
 }
 
 #landing-content {
@@ -58,9 +71,9 @@
     align-items: center;
 
     & header {
+        @include util.displayFont();
+        font-weight: var(--header-weight);
         font-size: 2.5rem;
-        font-weight: bold;
-        font-family: 'Creato Display', sans-serif;
         line-height: 1;
     }
 

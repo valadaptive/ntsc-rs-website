@@ -1,5 +1,6 @@
-@use 'sass:color';
+@use "sass:color";
 @use "sass:map";
+@use "./util.scss";
 @use "./assets/fonts/stylesheet.css";
 
 $beige: #f8f1e6;
@@ -64,7 +65,8 @@ $link-color-dark-mode: #8de1e7;
 }
 
 :root {
-    --header-font: 'Creato Display', 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    --header-font: 'Inter', 'Helvetica Neue', 'Helvetica', 'SF Pro', 'Arial', sans-serif;
+    --header-weight: 650;
 }
 
 .light-mode {
@@ -97,14 +99,16 @@ input[type=text], input[type=number] {
     background-color: var(--bg-hover);
     border: none;
     border-radius: 0.25rem;
+    padding: 0.1rem 0.5rem;
 
     &:focus {
         outline: 1px solid var(--text-color);
     }
 }
 
-h1, h2, h3, h4 {
-    font-family: var(--header-font);
+h1, h2, h3, h4, h5, h6 {
+    @include util.displayFont();
+    font-weight: 600;
     line-height: 1.25;
 
     &:target {
@@ -112,6 +116,10 @@ h1, h2, h3, h4 {
         outline: 0.25rem solid var(--highlight);
         border-radius: 0.25rem;
     }
+}
+
+h1 {
+    font-weight: 650;
 }
 
 a {
@@ -131,7 +139,7 @@ a {
     width: 1.5ex;
     height: 1ex;
     background-color: currentColor;
-    mask-image: url('assets/images/external-link.svg');
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cg fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath stroke-linejoin='round' d='M8 1H1v16h16V10'/%3E%3Cpath d='M17 1 6 12m5-11h6v6'/%3E%3C/g%3E%3C/svg%3E");
     mask-size: 1ex 1ex;
     mask-repeat: no-repeat;
     mask-position: 0.5ex 0;
@@ -157,17 +165,28 @@ code {
     position: sticky;
     top: 0;
     z-index: 2;
+    @include util.displayFont();
+    font-size: 1.25rem;
+    font-weight: 450;
 
     display: flex;
-    gap: 1rem;
 
     background-color: var(--navbar-color);
-    padding: 0 1rem;
+    padding-right: 1rem;
+
+    & a {
+        transition: background-color 0.1s;
+
+        &:hover,
+        &.active {
+            background-color: var(--bg-hover)
+        }
+    }
 }
 
 .navbar-logo {
     line-height: 0;
-    padding: 1rem 0;
+    padding: 1rem;
     display: flex;
     align-items: center;
 
@@ -196,18 +215,13 @@ code {
         align-items: center;
         height: 100%;
         box-sizing: border-box;
-        padding: 0.125rem 0.5rem;
+        padding: 0.125rem 0.625rem;
         white-space: nowrap;
 
         text-decoration: none;
         color: var(--text-color);
 
-        transition: background-color 0.1s;
 
-        &:hover,
-        &.active {
-            background-color: var(--bg-hover)
-        }
     }
 }
 
@@ -340,8 +354,8 @@ code {
 }
 
 .result-title, .sub-result-title {
-    font-family: var(--header-font);
-    font-weight: bold;
+    @include util.displayFont();
+    font-weight: 650;
 }
 
 .result-title {
@@ -353,11 +367,15 @@ code {
 }
 
 .search-no-results {
-    font-family: var(--header-font);
+    @include util.displayFont();
+    font-weight: 650;
     text-align: center;
     font-size: 2rem;
-    font-weight: bold;
     padding: 2rem;
+}
+
+.navigation-details {
+    padding: 0 0 0 2rem;
 }
 
 .navigation-sidebar {
@@ -447,22 +465,19 @@ button.icon-button {
         height: 100%;
         display: inline-block;
         background-color: var(--text-color);
-    }
-
-    &.arrow-left::before {
-        mask-image: url('assets/images/icon-arrow-left.svg');
+        mask-image: url("/assets/images/icons.svg");
     }
 
     &.arrow-right::before {
-        mask-image: url('assets/images/icon-arrow-right.svg');
+        mask-position: util.sprite-pos(2);
     }
 
     &.close::before {
-        mask-image: url('assets/images/icon-close.svg');
+        mask-position: util.sprite-pos(5);
     }
 
     &.search::before {
-        mask-image: url('assets/images/icon-search.svg');
+        mask-position: util.sprite-pos(6);
     }
 }
 
@@ -473,7 +488,7 @@ button.icon-button {
 
 #content {
     padding: 0 2rem 4rem;
-    width: 12in;
+    max-width: 12in;
     box-sizing: border-box;
 
     img {
@@ -512,7 +527,7 @@ img.thumbnail {
     display: none;
 }
 
-@media (max-width: 8in) {
+@media (max-width: 9in) {
     .nav-cols {
         flex-direction: column;
     }

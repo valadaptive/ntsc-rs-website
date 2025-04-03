@@ -1,0 +1,8 @@
+@mixin displayFont {
+    font-family: var(--header-font);
+    font-variation-settings: "opsz" 32;
+}
+
+@function sprite-pos($sprite-index) {
+    @return calc(#{100% * $sprite-index} / 6);
+}

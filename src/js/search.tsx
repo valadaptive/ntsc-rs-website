@@ -95,7 +95,8 @@ const SearchResults = ({results, resultsPerPage}: {
                     value={page.value}
                     onChange={setPageFromEvent.value}
                     disabled={numPages === 0}
-                /> of {numPages}
+                />
+                <span> of {numPages}</span>
                 <button
                     class="icon-button arrow-right"
                     onClick={nextPage.value}

@@ -1,3 +1,5 @@
+@use "./util.scss";
+
 #hero {
     color: #f8f5f0;
     position: relative;
@@ -40,12 +42,12 @@
 }
 
 .hero-header {
+    @include util.displayFont();
+    font-weight: var(--header-weight);
     font-size: 3rem;
     line-height: 1;
     text-align: center;
     margin-bottom: 2rem;
-    font-family: 'Creato Display', 'Inter', sans-serif;
-    font-weight: bold;
 }
 
 #os-menu {
