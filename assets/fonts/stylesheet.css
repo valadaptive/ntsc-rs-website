@@ -9,8 +9,6 @@
     font-style: normal;
     font-weight: 100 900;
     src: url('/assets/fonts/inter-variable-latin-regular.woff2') format('woff2');
-    /* Make it look more like Helvetica */
-    font-feature-settings: "ss07", "ss08", "cv10";
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -21,7 +19,6 @@
     font-style: italic;
     font-weight: 100 900;
     src: url('/assets/fonts/inter-variable-latin-italic.woff2') format('woff2');
-    font-feature-settings: "ss07", "ss08", "cv10";
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
