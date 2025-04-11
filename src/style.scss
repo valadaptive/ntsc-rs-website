@@ -91,6 +91,8 @@ body {
 input, select, body {
     color: var(--text-color);
     font-family: 'Inter', sans-serif;
+    /* Make it look more like Helvetica */
+    font-feature-settings: "ss07", "ss08", "cv10";
     font-size: 1.1rem;
     line-height: 1.625;
 }
