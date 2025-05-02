@@ -136,6 +136,28 @@
         <li><strong>macOS:</strong> 10.13 or newer.</li>
         <li><strong>Linux:</strong> Latest LTS release of most distributions.</li>
     </ul>
+
+    <hr>
+
+    <div class="gfm">
+        <h1>What's new</h1>
+<h3>PNG sequence support</h3>
+<p>The GUI and command-line application now support rendering PNG sequences. You can include a string of <code class="notranslate">#</code> characters in your filename to determine where the sequence number goes.</p>
+<p>The CLI also supports rendering just a single frame as a PNG. (<a class="issue-link js-issue-link" data-id="2630507756" data-url="https://github.com/valadaptive/ntsc-rs/issues/223" href="https://github.com/valadaptive/ntsc-rs/issues/223">#223</a>)</p>
+<h3>Scaling the effect itself</h3>
+<p>There is now an option (at the bottom, near "Bandwidth scale") to adjust the <em>vertical</em> scale of the effect as well. There's also an option to automatically scale the effect to the video resolution, but it's disabled by default because it really works much better if you scale the video down to 480p, like real VHS tapes are.</p>
+<p>The effect is also now automatically scaled along with the preview resolution in After Effects and OpenFX hosts. (<a class="issue-link js-issue-link" data-id="2642484047" data-url="https://github.com/valadaptive/ntsc-rs/issues/229" href="https://github.com/valadaptive/ntsc-rs/issues/229">#229</a>)</p>
+<h3>Bug fixes</h3>
+<ul>
+<li>Fixed drag-and-drop events on Windows. (<a class="issue-link js-issue-link" data-id="2855832926" data-url="https://github.com/valadaptive/ntsc-rs/issues/287" href="https://github.com/valadaptive/ntsc-rs/issues/287">#287</a>)</li>
+<li>CJK (Chinese, Japanese, and Korean) text now shows up in the UI. (<a class="issue-link js-issue-link" data-id="2840446529" data-url="https://github.com/valadaptive/ntsc-rs/issues/276" href="https://github.com/valadaptive/ntsc-rs/issues/276">#276</a>)
+<ul>
+<li>The text still may not appear completely correct (Korean in particular), but that's due to the way the user interface framework renders fonts. Fixing that is a much longer-term project.</li>
+</ul>
+</li>
+<li>WebP images can now be loaded on Windows and macOS. (<a class="issue-link js-issue-link" data-id="2825480308" data-url="https://github.com/valadaptive/ntsc-rs/issues/271" href="https://github.com/valadaptive/ntsc-rs/issues/271">#271</a>)</li>
+</ul>
+    </div>
 </div>
 
     
