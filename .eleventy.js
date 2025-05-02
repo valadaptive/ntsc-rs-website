@@ -8,39 +8,96 @@ import markdownItAttrs from 'markdown-it-attrs';
 
 import {eleventyImageTransformPlugin} from '@11ty/eleventy-img';
 import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
+import {RenderPlugin} from '@11ty/eleventy';
+import Fetch from '@11ty/eleventy-fetch';
+Fetch.concurrency = 1;
 
 // Cache latest release from GitHub to avoid excess API requests
 const apiResponse = (async() => {
-    const CACHED_RESPONSE_FILE = './release.json';
-    const CACHE_VALID_FOR_MINUTES = 15;
-    try {
-        const stats = await fs.stat(CACHED_RESPONSE_FILE);
-        if (Date.now() - stats.mtimeMs < 1000 * 60 * CACHE_VALID_FOR_MINUTES) {
-            const contents = await fs.readFile(CACHED_RESPONSE_FILE, 'utf8');
-            return JSON.parse(contents);
-        }
-    } catch {
-        // Cached response doesn't exist
-    }
-
-    const response = await fetch('https://api.github.com/repos/valadaptive/ntsc-rs/releases/latest', {
-        headers: {
-            'Accept': 'application/vnd.github+json',
-            'Authorization': process.env.GITHUB_TOKEN ? `Bearer ${process.env.GITHUB_TOKEN}` : undefined,
-            'X-GitHub-Api-Version': '2022-11-28'
+    const response = await Fetch('https://api.github.com/repos/valadaptive/ntsc-rs/releases/latest', {
+        duration: '15m',
+        type: 'json',
+        fetchOptions: {
+            headers: {
+                'Accept': 'application/vnd.github+json',
+                'Authorization': process.env.GITHUB_TOKEN ? `Bearer ${process.env.GITHUB_TOKEN}` : undefined,
+                'X-GitHub-Api-Version': '2022-11-28'
+            }
         }
     });
-    const json = await response.json();
-    if (!response.ok) {
-        throw new Error(json.message);
-    }
-    await fs.writeFile(CACHED_RESPONSE_FILE, JSON.stringify(json, null, '\t'), 'utf8');
-    return json;
+    return response;
 })();
+
+const renderWhatsNew = async function() {
+    const release = await apiResponse;
+    const text = release.body
+        .replace(/---[\s\n]+\**For installation instructions and further guidance(?:.|\n)+$/, '');
+    const requestBody = JSON.stringify({
+        text,
+        mode: 'gfm',
+        context: 'valadaptive/ntsc-rs'
+    });
+
+    let html = await Fetch('https://api.github.com/markdown', {
+        duration: '15m',
+        type: 'text',
+        fetchOptions: {
+            headers: {
+                'Accept': 'application/vnd.github+json',
+                'Authorization': process.env.GITHUB_TOKEN ? `Bearer ${process.env.GITHUB_TOKEN}` : undefined,
+                'X-GitHub-Api-Version': '2022-11-28'
+            },
+            method: 'POST',
+            body: requestBody
+        }
+    });
+
+    const attachmentsDir = path.join(import.meta.dirname, '_includes/gh_attachments');
+    await fs.mkdir(attachmentsDir, {recursive: true});
+    const $ = cheerio.load(html);
+    // Fetch the `src` for every `img`, `audio`, `picture`, and `video` element
+    const elements = $('img, audio, picture, video');
+    const fetches = [];
+    for (const element of elements) {
+        const src = element.attribs.src;
+        const srcUrl = new URL(src, release.html_url);
+        const fileName = srcUrl.pathname.split('/').pop();
+
+        fetches.push((async() => {
+            // Check if the file already exists
+            const filePath = path.join(attachmentsDir, fileName);
+            try {
+                await fs.access(filePath);
+                return;
+            } catch {
+                const response = await Fetch(src, {duration: '*'});
+                await fs.writeFile(path.join(attachmentsDir, fileName), response);
+            }
+        })());
+
+        element.attribs.src = `/assets/gh_attachments/${fileName}`;
+    }
+
+    $('*').attr('dir', null);
+    $('*').attr('data-canonical-src', null);
+    $('*').attr('data-hovercard-type', null);
+    $('*').attr('data-hovercard-url', null);
+    $('*').attr('data-error-text', null);
+    $('*').attr('data-permission-text', null);
+
+    html = $.html();
+
+    await Promise.all(fetches);
+
+    await fs.writeFile('_includes/whatsnew.html', html, 'utf8');
+    return html;
+};
 
 export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets');
+    eleventyConfig.addPassthroughCopy({'_includes/gh_attachments': 'assets/gh_attachments'});
 
+    eleventyConfig.addPlugin(RenderPlugin);
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
         widths: ['auto'],
         formats: ['svg', 'webp'],
@@ -87,6 +144,10 @@ export default function(eleventyConfig) {
             assetData.push({key: os.key, name: os.name, dists});
         }
         return assetData;
+    });
+
+    eleventyConfig.on('eleventy.before', async function() {
+        await renderWhatsNew();
     });
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);

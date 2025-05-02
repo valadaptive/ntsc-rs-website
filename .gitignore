@@ -1,3 +1,5 @@
 node_modules
 _site
-release.json
+.cache
+_includes/whatsnew.html
+_includes/gh_attachments
