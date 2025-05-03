@@ -41,7 +41,7 @@
 <section id="hero">
     <div class="hero-bg">
         <div class="hero-text">
-            <div class="hero-header">Download ntsc‑rs v0.9.2</div>
+            <div class="hero-header">Download ntsc‑rs v0.9.3</div>
             <select id="os-menu" class="button">
                 
                 <option value="windows">Windows</option>
@@ -54,15 +54,15 @@
             
                 <div class="os-buttons windows active">
                     
-                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.2/ntsc-rs-windows-standalone.zip" data-docs-url="/docs/standalone-installation/">
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.3/ntsc-rs-windows-standalone.zip" data-docs-url="/docs/standalone-installation/">
                             <div class="dist-name">Standalone application</div>
                         </a>
                     
-                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.2/ntsc-rs-windows-openfx.zip" data-docs-url="/docs/openfx-plugin/">
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.3/ntsc-rs-windows-openfx.zip" data-docs-url="/docs/openfx-plugin/">
                             <div class="dist-name">OpenFX plugin</div>
                         </a>
                     
-                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.2/ntsc-rs-windows-afterfx.zip" data-docs-url="/docs/after-effects-plugin/">
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.3/ntsc-rs-windows-afterfx.zip" data-docs-url="/docs/after-effects-plugin/">
                             <div class="dist-name">After Effects/Premiere plugin</div>
                         </a>
                     
@@ -70,15 +70,15 @@
             
                 <div class="os-buttons macos ">
                     
-                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.2/ntsc-rs-macos-standalone.pkg" data-docs-url="/docs/standalone-installation/">
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.3/ntsc-rs-macos-standalone.pkg" data-docs-url="/docs/standalone-installation/">
                             <div class="dist-name">Standalone application</div>
                         </a>
                     
-                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.2/ntsc-rs-macos-openfx.pkg" data-docs-url="/docs/openfx-plugin/">
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.3/ntsc-rs-macos-openfx.pkg" data-docs-url="/docs/openfx-plugin/">
                             <div class="dist-name">OpenFX plugin</div>
                         </a>
                     
-                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.2/ntsc-rs-macos-afterfx.pkg" data-docs-url="/docs/after-effects-plugin/">
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.3/ntsc-rs-macos-afterfx.pkg" data-docs-url="/docs/after-effects-plugin/">
                             <div class="dist-name">After Effects/Premiere plugin</div>
                         </a>
                     
@@ -86,11 +86,11 @@
             
                 <div class="os-buttons linux ">
                     
-                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.2/ntsc-rs-linux-standalone.zip" data-docs-url="/docs/standalone-installation/">
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.3/ntsc-rs-linux-standalone.zip" data-docs-url="/docs/standalone-installation/">
                             <div class="dist-name">Standalone application</div>
                         </a>
                     
-                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.2/ntsc-rs-linux-openfx.zip" data-docs-url="/docs/openfx-plugin/">
+                        <a rel="noreferrer" download="" class="download-button button dark-mode" href="https://github.com/valadaptive/ntsc-rs/releases/download/v0.9.3/ntsc-rs-linux-openfx.zip" data-docs-url="/docs/openfx-plugin/">
                             <div class="dist-name">OpenFX plugin</div>
                         </a>
                     
@@ -141,21 +141,14 @@
 
     <div class="gfm">
         <h1>What's new</h1>
-<h3>PNG sequence support</h3>
-<p>The GUI and command-line application now support rendering PNG sequences. You can include a string of <code class="notranslate">#</code> characters in your filename to determine where the sequence number goes.</p>
-<p>The CLI also supports rendering just a single frame as a PNG. (<a class="issue-link js-issue-link" data-id="2630507756" data-url="https://github.com/valadaptive/ntsc-rs/issues/223" href="https://github.com/valadaptive/ntsc-rs/issues/223">#223</a>)</p>
-<h3>Scaling the effect itself</h3>
-<p>There is now an option (at the bottom, near "Bandwidth scale") to adjust the <em>vertical</em> scale of the effect as well. There's also an option to automatically scale the effect to the video resolution, but it's disabled by default because it really works much better if you scale the video down to 480p, like real VHS tapes are.</p>
-<p>The effect is also now automatically scaled along with the preview resolution in After Effects and OpenFX hosts. (<a class="issue-link js-issue-link" data-id="2642484047" data-url="https://github.com/valadaptive/ntsc-rs/issues/229" href="https://github.com/valadaptive/ntsc-rs/issues/229">#229</a>)</p>
-<h3>Bug fixes</h3>
 <ul>
-<li>Fixed drag-and-drop events on Windows. (<a class="issue-link js-issue-link" data-id="2855832926" data-url="https://github.com/valadaptive/ntsc-rs/issues/287" href="https://github.com/valadaptive/ntsc-rs/issues/287">#287</a>)</li>
-<li>CJK (Chinese, Japanese, and Korean) text now shows up in the UI. (<a class="issue-link js-issue-link" data-id="2840446529" data-url="https://github.com/valadaptive/ntsc-rs/issues/276" href="https://github.com/valadaptive/ntsc-rs/issues/276">#276</a>)
-<ul>
-<li>The text still may not appear completely correct (Korean in particular), but that's due to the way the user interface framework renders fonts. Fixing that is a much longer-term project.</li>
-</ul>
+<li>
+<p>Fixed ntsc-rs no longer working on recent versions of Adobe Premiere and After Effects on macOS (<a class="issue-link js-issue-link" data-id="2973896618" data-url="https://github.com/valadaptive/ntsc-rs/issues/308" href="https://github.com/valadaptive/ntsc-rs/issues/308">#308</a>). I owe a massive thank you to <a class="user-mention notranslate" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/mobile-bungalow">@mobile-bungalow</a> for debugging and fixing this issue!</p>
+<p>The fix <em>should</em> work, but leave a comment on that issue if you're still having trouble getting ntsc-rs to show up in Premiere or After Effects on macOS.</p>
 </li>
-<li>WebP images can now be loaded on Windows and macOS. (<a class="issue-link js-issue-link" data-id="2825480308" data-url="https://github.com/valadaptive/ntsc-rs/issues/271" href="https://github.com/valadaptive/ntsc-rs/issues/271">#271</a>)</li>
+<li>
+<p>Fixed crashes in the OpenFX plugin caused by missing error checks. This affected Nuke and possibly other editing software as well.</p>
+</li>
 </ul>
     </div>
 </div>
