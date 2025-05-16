@@ -29,3 +29,7 @@ Yes. I developed ntsc-rs as a "faster ntscQT", and added new features from there
 Windows 7 has [reached end-of-life and is no longer receiving security updates since 2020](https://support.microsoft.com/en-us/windows/windows-7-support-ended-on-january-14-2020-b75d4580-2cc7-895a-2c9c-1466d9a53962). ntsc-rs does not support Windows 7.
 
 This is not unique to ntsc-rs; most software, including **every major web browser**, has also dropped support for Windows 7. I would strongly recommend upgrading to Windows 11, or Windows 10 if your computer doesn't support 11. I know newer versions of Windows have their issues, but it's better than using a version of Windows with unpatched security vulnerabilities that can only run web browsers that also have unpatched security vulnerabilities. If you really don't want to use Windows 10 or 11, consider Linux instead.
+
+## Can I use ntsc-rs on 32-bit PCs? {#32-bit}
+
+ntsc-rs is 64-bit, and would probably run much slower on 32-bit hardware. Good news, though: any PC that supports Windows 10 or up (see above), or any supported macOS version, is 64-bit. If you're still running a 32-bit operating system, you can and should install the 64-bit version of that operating system instead. This will allow you to run 64-bit software (which a lot of software is nowadays, including games), and will probably run a bit faster as well.
