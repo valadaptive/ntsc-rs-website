@@ -79,6 +79,12 @@ cd ntsc-rs
 <ol>
 <li>
 <p>Download and run the <a href="https://gstreamer.freedesktop.org/download/#windows" class="external-link">MSVC versions of the runtime and development GStreamer installers</a> (only necessary for the standalone application).</p>
+<ul>
+<li>
+<p>For H.264 encoding, you'll need to change the installation options, and select "GStreamer 1.0 codecs under the GPL license and/or with patents issues", "GStreamer 1.0 restricted codecs with potential patent issues in some countries", "GStreamer 1.0 libav wrapper", and "GStreamer 1.0 plugins for encoding". Probably only one of those is necessary, but I'm not sure which one.</p>
+ <img src="/assets/images/JpkLGuSdR--495.webp" alt="The GStreamer Windows installer." class="thumbnail" style="width: 260px" loading="lazy" decoding="async" width="495" height="387">
+</li>
+</ul>
 </li>
 <li>
 <p>If you installed GStreamer, follow their <a href="https://crates.io/crates/gstreamer#windows" class="external-link">instructions for setting the <code>PATH</code> environment variable</a>.
