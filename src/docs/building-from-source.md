@@ -44,6 +44,9 @@ After installing Rust and cloning the repository, the steps are platform-specifi
 <summary>Windows</summary>
 
 1. Download and run the [MSVC versions of the runtime and development GStreamer installers](https://gstreamer.freedesktop.org/download/#windows) (only necessary for the standalone application).
+   - For H.264 encoding, you'll need to change the installation options, and select "GStreamer 1.0 codecs under the GPL license and/or with patents issues", "GStreamer 1.0 restricted codecs with potential patent issues in some countries", "GStreamer 1.0 libav wrapper", and "GStreamer 1.0 plugins for encoding". Probably only one of those is necessary, but I'm not sure which one.
+
+      <img src="/assets/images/gst-win-install.png" alt="The GStreamer Windows installer." class="thumbnail" style="width: 260px">
 
 2. If you installed GStreamer, follow their [instructions for setting the `PATH` environment variable](https://crates.io/crates/gstreamer#windows).
    Currently, those instructions don't provide instructions for PowerShell--in such a case, you can set `PATH` via:
@@ -99,6 +102,7 @@ After installing Rust and cloning the repository, the steps are platform-specifi
 <summary>Linux</summary>
 
 1. Install the dependencies listed in the [standalone installation instructions](../standalone-installation#installation-linux).
+
 2. In addition to the GStreamer runtime packages listed in the above step, you'll need to install the GStreamer development packages:
     - For **Ubuntu, Debian, and Linux Mint**:
       ```
